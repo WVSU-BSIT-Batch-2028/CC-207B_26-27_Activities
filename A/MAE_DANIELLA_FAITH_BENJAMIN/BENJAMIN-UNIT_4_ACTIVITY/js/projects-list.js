@@ -7,10 +7,6 @@ const PROJECTS = [
         status: "Top 5 Finalist, Open Category",
         stack: ["Random Forest Model", "React", "Leaflet.js", "Flask REST APIs"],
         summary: "A web-based predictive coastal intelligence system for assessing IUU fishing risk and supporting patrol prioritization in Northern Iloilo coastal areas.",
-        overview: [
-            "AquAIman helps coastal enforcement teams identify areas with higher potential IUU fishing risk using historical vessel and coastal activity data across seven Northern Iloilo municipalities.",
-            "The system uses machine learning to classify areas into Low, Medium, and High risk levels, then presents the results through an interactive map and dashboard to make potential hotspots easier to identify and prioritize."
-        ],
         contributions: [
             "Built the front end of the dashboard in React.",
             "Added the interactive map with Leaflet.js.",
@@ -52,10 +48,6 @@ const PROJECTS = [
         status: "Completed, awaiting deployment",
         stack: ["PHP", "MySQL", "JavaScript", "HTML/CSS"],
         summary: "An online document request and appointment system for Barangay Lopez Jaena Norte that digitizes certificate requests and appointment scheduling.",
-        overview: [
-            "Residents traditionally need to coordinate with the barangay to request documents and arrange appointments, which can involve repeated visits and manual processing.",
-            "LJN-OBDRAS lets residents submit document requests without creating an account, upload required identification, select appointment slots, and track their requests using a Tracking ID. Barangay personnel can manage and process requests through an administrative system."
-        ],
         contributions: [
             "Developed both the front end and back end as a full-stack developer.",
             "Built the multi-step document request flow and connected it to the database.",
@@ -76,10 +68,6 @@ const PROJECTS = [
         role: "Full-stack Developer", period: "May 2025", status: "Completed",
         stack: ["PHP", "CSS", "JavaScript", "MySQL"],
         summary: "A digital student records system with separate Student, Teacher and Admin roles.",
-        overview: [
-            "ByteLog is designed to organize student records and school-related processes in one digital system for students, teachers, and administrators.",
-            "Each role has access to functions suited to its responsibilities, allowing students to manage their information and enrollment-related tasks while teachers and administrators handle academic and administrative records."
-        ],
         contributions: [
             "Developed the system as a full-stack developer.",
             "Worked on role-based features for Student, Teacher, and Admin users.",
@@ -98,10 +86,6 @@ const PROJECTS = [
         role: "Full-stack Developer", period: "October 2025", status: "Completed",
         stack: ["HTML", "CSS", "JavaScript", "Bootstrap", "Tailwind CSS"],
         summary: "A community platform that connects people offering local skills and services with those who need them.",
-        overview: [
-            "Linkod addresses the difficulty of finding trusted local people who can provide specific skills or services within a community.",
-            "Users can discover available skills and services, connect with providers, and participate in community-based exchanges through a centralized platform."
-        ],
         contributions: [
             "Developed the web application as a full-stack developer.",
             "Worked on the skills and services section for discovering available community services.",
@@ -118,10 +102,6 @@ const PROJECTS = [
         role: "Full-stack Developer", period: "May 2025", status: "Completed",
         stack: ["Java", "JavaFX", "MySQL"],
         summary: "A desktop application with a personality test that matches users to compatible characters.",
-        overview: [
-            "Tugma is a personality-based matching application designed to help users discover characters that share similar personality traits.",
-            "Users answer a series of personality questions, receive a personality result, and can then explore character matches based on the compatibility of their results."
-        ],
         contributions: [
             "Developed the desktop application as a full-stack developer.",
             "Implemented the personality test and result-generation flow.",
