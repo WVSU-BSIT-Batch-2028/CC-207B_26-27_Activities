@@ -464,24 +464,35 @@ a.item:hover h3 {
   margin-top: 16px;
 }
 
-.tags span {
+.tags span,
+.skill-list li {
   padding: 7px 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.6);
   font-size: 0.75rem;
   letter-spacing: 1px;
   text-transform: uppercase;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.tags span:hover,
+.skill-list li:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: #efe8fd;
 }
 
 /* STACK */
 .stack-list {
+  counter-reset: stack;
   border-top: 1px solid var(--line);
   margin-top: 10px;
   padding-top: 36px;
 }
 
 .stack-row {
+  counter-increment: stack;
   display: grid;
   grid-template-columns: 52px 1fr;
   gap: 22px;
@@ -497,18 +508,26 @@ a.item:hover h3 {
   width: 52px;
   height: 52px;
   padding: 14px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #ffffff;
-  color: var(--text);
+  border: 1px solid #ddd2f7;
+  border-radius: 14px;
+  background: #efe8fd;
+  color: var(--accent);
   flex-shrink: 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.stack-row:hover .stack-icon svg {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: scale(1.06);
 }
 
 .stack-icon::after {
   content: "";
   flex: 1;
-  width: 1px;
-  background: var(--line);
+  width: 0;
+  border-left: 1px dashed #c4b5fd;
   margin: 8px 0;
 }
 
@@ -518,6 +537,16 @@ a.item:hover h3 {
 
 .stack-info {
   padding-bottom: 34px;
+}
+
+.stack-info h3::before {
+  content: counter(stack, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 2px;
 }
 
 .stack-info h3 {
@@ -532,22 +561,7 @@ a.item:hover h3 {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  row-gap: 10px;
-}
-
-.skill-list li {
-  padding: 2px 14px;
-  border-left: 1px solid var(--line);
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--muted);
-}
-
-.skill-list li:first-child {
-  padding-left: 0;
-  border-left: none;
+  gap: 8px;
 }
 
 /* CONTACT / CONNECT */
