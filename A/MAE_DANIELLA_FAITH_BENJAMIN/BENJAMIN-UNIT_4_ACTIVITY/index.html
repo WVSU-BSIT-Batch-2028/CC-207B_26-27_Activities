@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Faith Benjamin | Portfolio</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
 </head>
@@ -14,24 +18,137 @@
 
     <!-- Navigation -->
     <header class="site-header">
-        <a href="#home" class="logo">Mae Benjamin</a>
-        <nav aria-label="Main navigation">
+        <nav aria-label="Main navigation" id="main-nav">
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
+        <a href="#home" class="logo">Faith Benjamin</a>
+        <div class="header-actions">
+            <a class="btn btn-sm" href="mailto:mdfcbenjamin@gmail.com">Contact</a>
+        </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <h1>Hi, I'm Mae Daniella Faith Benjamin.</h1>
+
+        <!-- Landing -->
+        <section id="home" class="desktop">
+            <a class="d-icon i-projects" href="#projects"><span>projects</span></a>
+            <a class="d-icon i-skills" href="#skills"><span>skills</span></a>
+            <a class="d-icon i-about" href="#about"><span>about</span></a>
+            <a class="d-icon i-mail" href="mailto:mdfcbenjamin@gmail.com"><span>contact</span></a>
+
+            <div class="desk-center">
+                <h1 class="wordmark">Portfolio</h1>
+                <p class="subtitle">Front-end development &amp; web systems</p>
+                <p class="byline">by <mark>Mae Daniella Faith Benjamin</mark></p>
+                <ul class="contact-row" id="contact" aria-label="Contact">
+                    <li><a class="btn" href="mailto:mdfcbenjamin@gmail.com">mdfcbenjamin@gmail.com</a></li>
+                    <li><a class="chip" href="https://github.com/faithbn" target="_blank"
+                            rel="noopener">github.com/faithbn</a></li>
+                    <li><a class="chip" href="https://www.linkedin.com/in/mae-daniella-faith-benjamin" target="_blank"
+                            rel="noopener">LinkedIn</a></li>
+                </ul>
+            </div>
         </section>
 
+        <!-- About -->
+        <section id="about">
+            <p class="section-label">About</p>
+            <h2>About me</h2>
+            <p>
+                I'm Mae Daniella Faith Benjamin, a BS Information Technology student, majoring in Software Development
+                and Technologies at West Visayas State University
+                who enjoys turning real-world problems into practical technology solutions. I'm particularly interested
+                in web development, user-focused design, accessibility, and exploring how AI can be applied to make
+                systems more useful and meaningful. Through school projects, organizations, and hackathons, I've worked
+                on everything from web-based systems and database-driven applications to AI-powered solutions for
+                community and environmental challenges.
+            </p>
+            <p>
+
+            </p>
         </section>
+
+        <!-- Education -->
+        <section id="education">
+            <p class="section">Education</p>
+            <h2>Where I'm studying</h2>
+            <div class="edu-grid">
+                <article class="edu-card">
+                    <span class="tag">Expected August 2028</span>
+                    <h3>BS Information Technology</h3>
+                    <p>West Visayas State University, Main Campus, Iloilo City</p>
+                    <p class="edu-sub">Major in Software Development and Technologies</p>
+                </article>
+                <article class="edu-card">
+                    <span class="tag">Networking</span>
+                    <h3>Relevant Courses and Certifications</h3>
+                    <ul class="edu-list">
+                        <li>Cisco CCNA 1 - Completed</li>
+                        <li>Cisco CCNA 2 - In progress</li>
+                    </ul>
+                </article>
+            </div>
+            <!-- Add senior high school or other schooling here if you want it shown. -->
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <p class="section">Skills</p>
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>HTML, CSS, JavaScript</li>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Tailwind CSS</li>
+                <li>Node.js</li>
+                <li>Flask</li>
+                <li>PHP</li>
+                <li>Java and C++</li>
+                <li>MySQL / MariaDB</li>
+                <li>Git and GitHub</li>
+                <li>Docker</li>
+                <li>Networking (Cisco CCNA)</li>
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="project">
+            <div class=" project-frame">
+                <p class="section">Projects</p>
+                <h2>Projects</h2>
+
+                <div class="project-intro">
+                    <p>A selection of the systems I have helped build. Pick a project to preview it, then open the
+                        view button to see my role, contributions, and other details.</p>
+                </div>
+
+                <ul class="project-list">
+                    <li>AquAIman: dashboard for the National AI Fest Hackathon 2026</li>
+                    <li>Re:Claim: lost and found tracking system for WVSU Main Campus</li>
+                    <li>LJN-OBDRAS: document request and appointment system for Barangay Lopez Jaena Norte</li>
+                    <li>ByteLog: digital student records system</li>
+                    <li>Linkod: community platform for local skills and services</li>
+                    <li>Tugma: desktop personality test and matching app</li>
+                </ul>
+            </div>
+        </section>
+
     </main>
+
+    <footer class="site-footer">
+        <p>Faith Benjamin: Portfolio, 2026</p>
+        <p class="foot-links"><a href="mailto:mdfcbenjamin@gmail.com">Email</a> &middot; <a
+                href="https://github.com/faithbn" target="_blank" rel="noopener">GitHub</a> &middot; <a
+                href="https://www.linkedin.com/in/mae-daniella-faith-benjamin" target="_blank"
+                rel="noopener">LinkedIn</a></p>
+        <span class="mark" aria-hidden="true">FB</span>
+    </footer>
+
 </body>
 
 </html>
