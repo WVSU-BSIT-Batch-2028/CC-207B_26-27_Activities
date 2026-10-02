@@ -110,6 +110,14 @@
             x="3" y="5" width="18" height="14" rx="2"/>
       <path pathLength="100" d="m3 7 9 6 9-6"/>
     </symbol>
+    <symbol id="i-resume" viewBox="0 0 24 24">
+      <path
+        pathLength="100"
+        d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12
+          a2 2 0 0 0 2-2V8Z"
+      />
+      <path pathLength="100" d="M14 2v6h6M8 12h8M8 16h8"/>
+    </symbol>
   </svg>
 
   <a class="skip" href="#main">Skip to content</a>
@@ -132,6 +140,17 @@
         </button>
 
         <span class="toolbar-divider" aria-hidden="true"></span>
+        
+        <a class="icon-button resume-button"
+          href="assets/ellisa-bonete-resume.pdf"
+          target="_blank"
+          rel="noopener"
+          aria-label="Open my résumé PDF in a new tab"
+          title="View résumé">
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-resume"/>
+          </svg>
+        </a>
 
         <a class="icon-button" href="https://github.com/builtbyelli"
            aria-label="Visit my GitHub">
@@ -307,10 +326,10 @@
           <svg class="icon"><use href="#i-code"/></svg>
         </span>
         <div class="project-copy">
-          <h3>Human Resources Information System</h3>
+          <h3>HUMA</h3>
           <p>A human resources information system designed to organize employee records and streamline routine HR and administrative tasks.</p>
           <div class="project-tags">
-            <span>PHP</span><span>Tailwind CSS</span><span>JavaScript</span><span>SQL</span>
+            <span>PHP</span><span>Tailwind CSS</span><span>JavaScript</span><span>MySQL</span>
           </div>
         </div>
         <svg class="icon project-arrow"><use href="#i-arrow"/></svg>
@@ -327,7 +346,7 @@
           <h3>SellEase</h3>
           <p>A customer relationship management (CRM) system designed to help Filipino sellers organize and manage sales made through Instagram and Facebook.</p>
           <div class="project-tags">
-            <span>TypeScript</span><span>CSS</span><span>SQL</span><span>JavaScript</span>
+            <span>TypeScript</span><span>CSS</span><span>MySQL</span><span>JavaScript</span>
           </div>
         </div>
         <svg class="icon project-arrow"><use href="#i-arrow"/></svg>
@@ -399,12 +418,34 @@
         <h2>Let’s connect</h2><span class="tiny">03 / SAY HELLO</span>
       </div>
       <p class="muted">
-        I welcome opportunities to exchange ideas, learn from others, and discuss projects. Explore my work on GitHub or email me using the link above.
+        I welcome opportunities to exchange ideas, learn from others,
+        and discuss projects. Explore my work on GitHub or email me at
+        <a class="email-inline" href="mailto:ellisabonete11@gmail.com">
+          <svg class="icon" aria-hidden="true">
+            <use href="#i-mail"/>
+          </svg>
+          <span>ellisabonete11@gmail.com</span>
+          <svg class="icon small" aria-hidden="true">
+            <use href="#i-arrow"/>
+          </svg>
+        </a>.
       </p>
       <a class="contact-link" href="https://github.com/builtbyelli">
         <svg class="icon"><use href="#i-github"/></svg>
         builtbyelli
         <svg class="icon"><use href="#i-arrow"/></svg>
+      </a>
+
+      <a class="contact-link"
+        href="assets/ellisa-bonete-resume.pdf"
+        download="Ellisa-Bonete-Resume.pdf">
+        <svg class="icon" aria-hidden="true">
+          <use href="#i-resume"/>
+        </svg>
+        Download résumé
+        <svg class="icon" aria-hidden="true">
+          <use href="#i-arrow"/>
+        </svg>
       </a>
     </section>
 

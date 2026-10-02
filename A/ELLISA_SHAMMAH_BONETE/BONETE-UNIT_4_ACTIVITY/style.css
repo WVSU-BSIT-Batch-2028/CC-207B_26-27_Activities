@@ -501,6 +501,20 @@ h3 { margin: 0; font-size: 15px; font-weight: 600; }
 .timeline-heading .icon { color: var(--faint); width: 15px; height: 15px; }
 .timeline-item p { color: var(--muted); font-size: 13px; margin: 7px 0 0; }
 
+.project-preview {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+#contact .contact-link {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
 .contact-link {
   display: inline-flex;
   align-items: center;
@@ -513,6 +527,29 @@ h3 { margin: 0; font-size: 15px; font-weight: 600; }
 }
 
 .contact-link:hover { background: var(--surface); border-color: var(--faint); }
+
+.email-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  vertical-align: middle;
+  color: var(--text);
+}
+
+.email-inline span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.email-inline .icon {
+  flex-shrink: 0;
+}
+
+.email-inline:hover span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 
 footer {
   display: flex;
