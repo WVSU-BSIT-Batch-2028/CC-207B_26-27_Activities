@@ -47,64 +47,141 @@ function updateActiveLink() {
 window.addEventListener("scroll", updateActiveLink);
 updateActiveLink();
 
+// Resume preview modal
+const resumeLink = document.getElementById("resume-open");
+const resumeModal = document.getElementById("resume-modal");
+const resumeFrame = document.getElementById("resume-frame");
+
+if (resumeLink && resumeModal && resumeFrame) {
+  const resumeUrl = resumeLink.getAttribute("href");
+  const closeButton = resumeModal.querySelector(".modal-close");
+  let lastFocused = null;
+
+  // Phones and browsers without an inline PDF viewer just open the file in a new tab
+  const canPreview = () =>
+    window.matchMedia("(min-width: 701px)").matches &&
+    navigator.pdfViewerEnabled !== false;
+
+  function openResume(event) {
+    if (!canPreview()) return;
+    event.preventDefault();
+    lastFocused = document.activeElement;
+    // Hide the browser's PDF toolbar and thumbnails so only the paper shows
+    resumeFrame.src =
+      resumeUrl + "#toolbar=0&navpanes=0&pagemode=none&view=FitH&zoom=page-width";
+    resumeModal.classList.add("open");
+    resumeModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+    closeButton.focus();
+  }
+
+  function closeResume() {
+    resumeModal.classList.remove("open");
+    resumeModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    resumeFrame.src = "about:blank";
+    if (lastFocused) lastFocused.focus();
+  }
+
+  resumeLink.addEventListener("click", openResume);
+  closeButton.addEventListener("click", closeResume);
+  resumeModal.addEventListener("click", (event) => {
+    if (event.target === resumeModal) closeResume();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && resumeModal.classList.contains("open")) {
+      closeResume();
+    }
+  });
+}
+
 // GitHub contribution graph
 const ghUser = "eysikiel";
 const ghDots = document.getElementById("gh-dots");
 const ghStats = document.getElementById("gh-stats");
 
+async function fetchContributions(attempts = 2) {
+  for (let i = 0; i < attempts; i++) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+
+    try {
+      const res = await fetch(
+        "https://github-contributions-api.jogruber.de/v4/" + ghUser + "?y=last",
+        { signal: controller.signal }
+      );
+
+      if (!res.ok) {
+        throw new Error("Contribution API returned " + res.status);
+      }
+
+      const data = await res.json();
+
+      if (!data.contributions || !data.contributions.length) {
+        throw new Error("No contribution data returned.");
+      }
+
+      return data.contributions;
+    } catch (error) {
+      console.error("GitHub contribution error (attempt " + (i + 1) + "):", error);
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  return null;
+}
+
+function drawDots(cells, cols) {
+  ghDots.style.setProperty("--cols", cols);
+  ghDots.replaceChildren(...cells);
+}
+
+function makeDot(level, title) {
+  const dot = document.createElement("span");
+  dot.className = "gh-dot";
+  dot.dataset.level = level;
+  if (title) dot.title = title;
+  return dot;
+}
+
 async function loadGithubGraph() {
+  if (!ghDots || !ghStats) {
+    console.warn("Missing #gh-dots or #gh-stats in index.html");
+    return;
+  }
+
   let total = null;
   let repos = null;
 
-  try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 8000);
+  const days = await fetchContributions();
 
-    const res = await fetch(
-      "https://github-contributions-api.jogruber.de/v4/" + ghUser + "?y=last",
-      { signal: controller.signal }
-    );
-
-    clearTimeout(timeout);
-
-    if (!res.ok) {
-      throw new Error("GitHub contribution API returned " + res.status);
-    }
-
-    const data = await res.json();
-    const days = data.contributions;
-
-    if (!days || !days.length) {
-      throw new Error("No contribution data returned.");
-    }
-
+  if (days) {
+    // Pad the first week so Sunday is row 1
     const firstDay = new Date(days[0].date + "T00:00:00").getDay();
+    const cells = [];
 
     for (let i = 0; i < firstDay; i++) {
-      const blank = document.createElement("span");
-      blank.className = "gh-dot empty";
-      ghDots.appendChild(blank);
+      const blank = makeDot(0);
+      blank.classList.add("empty");
+      cells.push(blank);
     }
-
-    ghDots.style.setProperty("--cols", Math.ceil((firstDay + days.length) / 7));
 
     total = 0;
 
     days.forEach((day) => {
       total += day.count;
-
-      const dot = document.createElement("span");
-      dot.className = "gh-dot";
-      dot.dataset.level = day.level;
-      dot.title = day.count + " contributions on " + day.date;
-
-      ghDots.appendChild(dot);
+      cells.push(makeDot(day.level, day.count + " contributions on " + day.date));
     });
-  } catch (error) {
-    console.error("GitHub contribution error:", error);
-    ghDots.style.display = "none";
+
+    drawDots(cells, Math.ceil(cells.length / 7));
+  } else {
+    // Keep the graph visible (empty dots) instead of hiding it
+    const cells = Array.from({ length: 53 * 7 }, () => makeDot(0));
+    drawDots(cells, 53);
   }
 
+  // Public repository count
   try {
     const res = await fetch("https://api.github.com/users/" + ghUser);
 
