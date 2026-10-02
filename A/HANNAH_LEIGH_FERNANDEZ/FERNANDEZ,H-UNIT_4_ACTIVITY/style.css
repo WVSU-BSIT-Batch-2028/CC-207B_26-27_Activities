@@ -1,7 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Pinyon+Script&display=swap');
+/* ---------- Page / root ---------- */
+:root {
+  --screen-bg: #fff;
+  background: var(--screen-bg);
+  letter-spacing: 0.18px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-/* Theme */
+:root:has(.app[data-theme='dark']) {
+  --screen-bg: #16171d;
+}
+
+body {
+  margin: 0;
+  background: var(--screen-bg);
+}
+
+p {
+  margin: 0;
+}
+
+h2 {
+  font-family: var(--font);
+  font-weight: 500;
+  color: var(--text-h);
+  font-size: 1.9rem;
+  line-height: 1.2;
+  letter-spacing: -0.24px;
+  margin: 0 0 0.5rem;
+}
+
+/* ---------- Theme tokens ---------- */
 .app {
+  --text-h: #08060d;
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
   --page: #faf4e4;
   --back: #d8bd7a;
   --back-text: #483a21;
@@ -27,9 +63,15 @@
   --focus: #ffc928;
   --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
   --script-font: 'Pinyon Script', 'Snell Roundhand', 'Brush Script MT', cursive;
+
+  color-scheme: light;
 }
 
 .app[data-theme='dark'] {
+  --text-h: #f3f4f6;
+  --shadow:
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+
   --page: #171913;
   --back: #76613b;
   --back-text: #fff4d8;
@@ -53,18 +95,11 @@
   --btn-text: #ffffff;
   --btn-hover: #3c6f46;
   --focus: #ffdf55;
+
+  color-scheme: dark;
 }
 
-/* remove remaining vite starter layout */
-#root {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  border: none;
-  text-align: left;
-  display: block;
-}
-
+/* ---------- App shell ---------- */
 .app {
   position: relative;
   font-family: var(--font);
@@ -96,11 +131,14 @@
   white-space: nowrap;
 }
 
-/* Toggle theme */
+/* ---------- Theme toggle ---------- */
 .app .toolbar {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .app .theme-toggle {
@@ -118,6 +156,7 @@
 
 .app .theme-toggle:hover {
   background: var(--tab-hover);
+  box-shadow: var(--shadow);
 }
 
 .app .theme-toggle svg {
@@ -128,9 +167,14 @@
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
+  transition: transform 0.4s;
 }
 
-/* Stage (Clips excess folder animation) */
+.app .theme-toggle:hover svg {
+  transform: rotate(25deg);
+}
+
+/* ---------- Stage (clips the folder animation) ---------- */
 .stage {
   --tab-h: 44px;
   --front-top: 96px;
@@ -181,7 +225,13 @@
   padding: 1.25rem;
 }
 
-/* Information (inside the back folder) */
+/* Folder height follows the content smoothly (height is set from JS) */
+.back-fit {
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+
+/* ---------- Information (inside the back folder) ---------- */
 .info {
   background: var(--paper);
   border-radius: 12px;
@@ -218,17 +268,9 @@
   cursor: pointer;
 }
 
-[role='tab']:nth-child(1) {
-  background: var(--tab-green);
-}
-
-[role='tab']:nth-child(2) {
-  background: var(--tab-purple);
-}
-
-[role='tab']:nth-child(3) {
-  background: var(--tab-blue);
-}
+[role='tab']:nth-child(1) { background: var(--tab-green); }
+[role='tab']:nth-child(2) { background: var(--tab-purple); }
+[role='tab']:nth-child(3) { background: var(--tab-blue); }
 
 [role='tab'][aria-selected='true'] {
   text-decoration: underline;
@@ -245,49 +287,17 @@
   max-width: 64ch;
 }
 
+.panel[hidden] {
+  display: none;
+}
+
 .panel:focus-visible {
   outline-offset: -4px;
-}
-
-h2 {
-  font-size: 1.9rem;
-  line-height: 1.2;
-  margin: 0 0 0.5rem;
-}
-
-h3 {
-  font-size: 1.3rem;
-  margin: 0 0 0.25rem;
 }
 
 .lede {
   font-weight: 600;
   color: var(--muted);
-}
-
-.meta {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.projects {
-  list-style: none;
-  margin: 1rem 0 0;
-  padding: 0;
-}
-
-.projects li {
-  padding: 1rem 0;
-  border-top: 2px solid var(--rule);
-}
-
-.projects li:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.projects p {
-  margin: 0.25rem 0;
 }
 
 .chips {
@@ -306,7 +316,7 @@ h3 {
   font-weight: 600;
 }
 
-/* Links */
+/* ---------- Links ---------- */
 .app .link-list {
   list-style: none;
   display: flex;
@@ -362,7 +372,7 @@ h3 {
   color: var(--btn-text);
 }
 
-/* Front folder */
+/* ---------- Front folder ---------- */
 .front {
   position: absolute;
   inset: var(--front-top) 0 0 0;
@@ -374,7 +384,7 @@ h3 {
   justify-content: center;
   align-items: flex-start;
   padding: 2rem 5%;
-  transition: transform 0.9s cubic-bezier(.65, 0, .25, 1);
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.25, 1);
 }
 
 .front-tab {
@@ -413,7 +423,7 @@ h3 {
 .is-open .front {
   transform: translateY(calc(100% + var(--tab-h) + 20px));
   visibility: hidden;
-  transition: transform 0.9s cubic-bezier(.65, 0, .25, 1), visibility 0s linear 0.9s;
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.25, 1), visibility 0s linear 0.9s;
 }
 
 .stage:not(.is-open) .front:hover {
@@ -421,7 +431,7 @@ h3 {
   box-shadow: 0 8px 20px rgb(0 0 0 / 0.25);
 }
 
-/* Buttons & focus */
+/* ---------- Buttons & focus ---------- */
 .btn {
   display: inline-block;
   max-width: 100%;
@@ -435,23 +445,6 @@ h3 {
   padding: 0.7rem 1.25rem;
   min-height: 44px;
   cursor: pointer;
-}
-
-.email-icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 0.5rem;
-  vertical-align: -4px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
-}
-
-.email-link {
-  max-width: 100%;
-  overflow-wrap: anywhere;
 }
 
 .btn:hover {
@@ -471,7 +464,24 @@ h3 {
   border-color: var(--ink);
 }
 
-/* Button for front folder */
+.email-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+  vertical-align: -4px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.email-link {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* The whole front folder acts as the open button's click target */
 .open-btn::after {
   content: '';
   position: absolute;
@@ -483,13 +493,7 @@ h3 {
   box-shadow: 0 0 0 6px var(--focus);
 }
 
-/* Folder height follows the content smoothly (height is set from JS) */
-.back-fit {
-  overflow: hidden;
-  transition: height 0.5s ease;
-}
-
-/* Simple animations */
+/* ---------- Animations ---------- */
 @keyframes rise-in {
   from { opacity: 0; transform: translateY(24px); }
 }
@@ -508,7 +512,7 @@ h3 {
   animation: rise-in 0.7s ease-out both;
 }
 
-/* Information fades up as the front folder slides away (also runs when switching tabs) */
+/* Content fades up as the front folder slides away (re-runs when switching tabs) */
 .is-open .panel > * {
   animation: fade-up 0.5s ease-out 0.2s both;
 }
@@ -542,17 +546,8 @@ h3 {
   transform: translateY(-2px);
 }
 
-.app .theme-toggle svg {
-  transition: transform 0.4s;
-}
-
-.app .theme-toggle:hover svg {
-  transform: rotate(25deg);
-}
-
-/* Preferences */
+/* ---------- Preferences ---------- */
 @media (prefers-reduced-motion: reduce) {
-
   .front,
   .is-open .front {
     transition: none;
@@ -586,7 +581,6 @@ h3 {
 }
 
 @media (forced-colors: active) {
-
   .front,
   .back,
   .info,
@@ -601,6 +595,7 @@ h3 {
   }
 }
 
+/* ---------- Mobile ---------- */
 @media (max-width: 520px) {
   .info-bar {
     flex-direction: column;
