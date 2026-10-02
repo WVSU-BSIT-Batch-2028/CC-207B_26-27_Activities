@@ -13,6 +13,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/projects.js" defer></script>
     <script src="js/script.js" defer></script>
 </head>
 
@@ -148,18 +149,22 @@
                         view button to see my role, contributions, and other details.</p>
                 </div>
 
-                <ul class="project-list">
-                    <li>AquAIman: dashboard for the National AI Fest Hackathon 2026</li>
-                    <li>Re:Claim: lost and found tracking system for WVSU Main Campus</li>
-                    <li>LJN-OBDRAS: document request and appointment system for Barangay Lopez Jaena Norte</li>
-                    <li>ByteLog: digital student records system</li>
-                    <li>Linkod: community platform for local skills and services</li>
-                    <li>Tugma: desktop personality test and matching app</li>
-                </ul>
+                <div class="tabs" id="project-tabs"></div>
+                <div id="project-panels"></div>
             </div>
         </section>
 
     </main>
+
+    <div class="lightbox preview-lightbox" id="preview-lightbox" role="dialog" aria-modal="true"
+        aria-label="Project screenshot viewer" hidden>
+        <button class="lb-btn lb-close" id="preview-lightbox-close" type="button"
+            aria-label="Close screenshot viewer">Close</button>
+        <div class="lb-body">
+            <img id="preview-lightbox-image" alt="">
+            <p id="preview-lightbox-caption"></p>
+        </div>
+    </div>
 
     <footer class="site-footer">
         <p>Faith Benjamin: Portfolio, 2026</p>
