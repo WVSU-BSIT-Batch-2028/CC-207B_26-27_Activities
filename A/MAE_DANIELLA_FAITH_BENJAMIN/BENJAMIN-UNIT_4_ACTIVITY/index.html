@@ -26,7 +26,7 @@
                 <li><a href="#projects">Projects</a></li>
             </ul>
         </nav>
-        <a href="#home" class="logo">Faith Benjamin</a>
+        <a href="#home" class="logo"><span class="dots" aria-hidden="true">···</span>Faith Benjamin</a>
         <div class="header-actions">
             <a class="btn btn-sm" href="mailto:mdfcbenjamin@gmail.com">Contact</a>
         </div>
@@ -36,13 +36,16 @@
 
         <!-- Landing -->
         <section id="home" class="desktop">
-            <a class="d-icon i-projects" href="#projects"><span>projects</span></a>
-            <a class="d-icon i-skills" href="#skills"><span>skills</span></a>
-            <a class="d-icon i-about" href="#about"><span>about</span></a>
-            <a class="d-icon i-mail" href="mailto:mdfcbenjamin@gmail.com"><span>contact</span></a>
+            <a class="d-icon i-projects" href="#projects"><span
+                    class="icon icon-folder"></span><span>projects</span></a>
+            <a class="d-icon i-skills" href="#skills"><span class="icon icon-chip"></span><span>skills</span></a>
+            <a class="d-icon i-about" href="#about"><span class="icon icon-info"></span><span>about</span></a>
+            <a class="d-icon i-mail" href="mailto:mdfcbenjamin@gmail.com"><span
+                    class="icon icon-mail"></span><span>contact</span></a>
 
             <div class="desk-center">
-                <h1 class="wordmark">Portfolio</h1>
+                <h1 class="wordmark" aria-label="Portfolio"><span aria-hidden="true">p<span
+                            class="icon icon-person"></span>rtf<span class="icon icon-code"></span>lio</span></h1>
                 <p class="subtitle">Front-end development &amp; web systems</p>
                 <p class="byline">by <mark>Mae Daniella Faith Benjamin</mark></p>
                 <ul class="contact-row" id="contact" aria-label="Contact">
@@ -53,6 +56,21 @@
                             rel="noopener">LinkedIn</a></li>
                 </ul>
             </div>
+
+            <span class="cursor" aria-hidden="true"></span>
+            <div class="hill" aria-hidden="true"></div>
+            <nav class="dock" aria-label="Quick links">
+                <a href="#about" class="t-about" aria-label="About" title="About"><span
+                        class="icon icon-person"></span></a>
+                <a href="#education" class="t-edu" aria-label="Education" title="Education"><span
+                        class="icon icon-cap"></span></a>
+                <a href="#skills" class="t-skills" aria-label="Skills" title="Skills"><span
+                        class="icon icon-code"></span></a>
+                <a href="#projects" class="t-proj" aria-label="Projects" title="Projects"><span
+                        class="icon icon-folder"></span></a>
+                <a href="mailto:mdfcbenjamin@gmail.com" class="t-mail" aria-label="Contact" title="Contact"><span
+                        class="icon icon-mail"></span></a>
+            </nav>
         </section>
 
         <!-- About -->

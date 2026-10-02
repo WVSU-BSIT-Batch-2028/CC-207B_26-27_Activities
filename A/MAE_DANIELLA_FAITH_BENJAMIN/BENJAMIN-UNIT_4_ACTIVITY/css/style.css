@@ -1,3 +1,4 @@
+/* ---------- Brand tokens: soft blues, rounded white cards, Poppins ---------- */
 :root {
     --bg: #f6f9ff;
     --hero-a: #dbe6ff;
@@ -13,6 +14,8 @@
     --shadow: 0 10px 30px rgba(31, 58, 138, 0.10);
     --font: "Poppins", system-ui, sans-serif;
     --max: 66rem;
+    --hill-a: #7d9bf5;
+    --hill-b: #3f5ee0;
 }
 
 /* ---------- Base ---------- */
@@ -98,5 +101,427 @@ section,
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
+    }
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "logo nav actions";
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 2px 12px rgba(31, 58, 138, 0.06);
+    font-size: 0.9rem;
+}
+
+.logo {
+    grid-area: logo;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--navy);
+    text-decoration: none;
+}
+
+#main-nav {
+    grid-area: nav;
+    justify-self: center;
+}
+
+.header-actions {
+    grid-area: actions;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.75rem;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: 0.2rem;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.dots {
+    display: inline-block;
+    margin: -1rem 0.7rem -1rem 0;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+    background: linear-gradient(90deg, #ff5f57 0 33.3%, #febc2e 33.3% 66.6%, #28c840 66.6% 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--on-primary);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(47, 75, 214, 0.28);
+}
+
+.btn:hover {
+    filter: brightness(1.08);
+}
+
+.btn-sm {
+    padding: 0.4rem 1.1rem;
+    font-size: 0.85rem;
+    box-shadow: none;
+}
+
+/* ---------- Icons ---------- */
+.icon {
+    display: block;
+}
+
+.icon::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: currentColor;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
+
+.icon-folder::before {
+    mask-image: url("../assets/icons/folder.svg");
+    -webkit-mask-image: url("../assets/icons/folder.svg");
+}
+
+.icon-chip::before {
+    mask-image: url("../assets/icons/chip.svg");
+    -webkit-mask-image: url("../assets/icons/chip.svg");
+}
+
+.icon-info::before {
+    mask-image: url("../assets/icons/info.svg");
+    -webkit-mask-image: url("../assets/icons/info.svg");
+}
+
+.icon-mail::before {
+    mask-image: url("../assets/icons/mail.svg");
+    -webkit-mask-image: url("../assets/icons/mail.svg");
+}
+
+.icon-cap::before {
+    mask-image: url("../assets/icons/cap.svg");
+    -webkit-mask-image: url("../assets/icons/cap.svg");
+}
+
+.icon-person::before {
+    mask-image: url("../assets/icons/person.svg");
+    -webkit-mask-image: url("../assets/icons/person.svg");
+}
+
+.icon-code::before {
+    mask-image: url("../assets/icons/code.svg");
+    -webkit-mask-image: url("../assets/icons/code.svg");
+}
+
+/* ---------- landing Section ---------- */
+.desktop {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    max-width: none;
+    min-height: calc(100vh - 4rem);
+    padding: 0;
+    display: grid;
+    place-items: center;
+}
+
+.desktop::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: repeating-linear-gradient(180deg, rgba(47, 75, 214, 0.22) 0 1px, transparent 1px 7px);
+    -webkit-mask-image: linear-gradient(#000, transparent 75%);
+    mask-image: linear-gradient(#000, transparent 75%);
+}
+
+.desk-center {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem 1.5rem 12rem;
+}
+
+.wordmark {
+    margin: 0;
+    font-family: "Instrument Serif", Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(4rem, 15vw, 10.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    white-space: nowrap;
+}
+
+.wordmark .icon {
+    display: inline-block;
+    width: 0.62em;
+    height: 0.62em;
+    padding: 0.13em;
+    margin: 0 0.04em;
+    border-radius: 0.17em;
+    vertical-align: -0.02em;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(31, 58, 138, 0.25);
+}
+
+.wordmark .icon-person {
+    background: #f6b95c;
+}
+
+.wordmark .icon-code {
+    background: var(--primary);
+    color: var(--on-primary);
+    margin-left: 0.15em;
+}
+
+.subtitle {
+    margin: 1.5rem auto 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+}
+
+.byline {
+    margin: 0 auto 1.75rem;
+    font-weight: 500;
+}
+
+.byline mark {
+    position: relative;
+    margin-left: 0.4rem;
+    padding: 0.2rem 0.7rem;
+    background: #8fb0f0;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.2rem;
+}
+
+.byline mark::before,
+.byline mark::after {
+    content: "";
+    position: absolute;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    background: #1c6ef2;
+}
+
+.byline mark::before {
+    left: -0.3rem;
+    top: -0.3rem;
+}
+
+.byline mark::after {
+    right: -0.3rem;
+    bottom: -0.3rem;
+}
+
+.contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.chip {
+    display: inline-block;
+    background: var(--card);
+    color: var(--navy);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 0.7rem 1.3rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+}
+
+.chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Desktop icons in the corners */
+.d-icon {
+    position: absolute;
+    z-index: 2;
+    display: grid;
+    justify-items: center;
+    gap: 0.4rem;
+    width: 5.5rem;
+    color: var(--navy);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.d-icon .icon {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.7rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 0.9rem;
+    box-shadow: var(--shadow);
+    color: var(--primary);
+}
+
+.d-icon:hover .icon {
+    border-color: var(--primary);
+}
+
+.i-projects {
+    top: 2.5rem;
+    left: 2.5rem;
+}
+
+.i-skills {
+    top: 2.5rem;
+    right: 2.5rem;
+}
+
+.i-about {
+    bottom: 9rem;
+    left: 3rem;
+}
+
+.i-mail {
+    bottom: 9rem;
+    right: 3rem;
+}
+
+.cursor {
+    position: absolute;
+    z-index: 3;
+    right: 22%;
+    top: 55%;
+    width: 1.8rem;
+    height: 1.8rem;
+    background: url("../assets/icons/cursor.svg") center / contain no-repeat;
+    pointer-events: none;
+}
+
+.hill {
+    position: absolute;
+    z-index: 0;
+    left: -10%;
+    right: -10%;
+    bottom: -9rem;
+    height: 15rem;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    background: linear-gradient(180deg, var(--hill-a), var(--hill-b));
+}
+
+/* Dock */
+.dock {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.55rem 0.7rem;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 1.2rem;
+    backdrop-filter: blur(8px);
+}
+
+.dock a {
+    display: grid;
+    place-items: center;
+    width: 3.1rem;
+    height: 3.1rem;
+    border-radius: 0.85rem;
+    color: #fff;
+    transition: transform 0.15s;
+}
+
+.dock a:hover,
+.dock a:focus-visible {
+    transform: translateY(-0.5rem) scale(1.15);
+}
+
+.dock .icon {
+    width: 55%;
+    height: 55%;
+}
+
+.t-about {
+    background: #f6b95c;
+}
+
+.t-edu {
+    background: #2f4bd6;
+}
+
+.t-skills {
+    background: #112a6b;
+}
+
+.t-proj {
+    background: #7a5af0;
+}
+
+.t-mail {
+    background: #e5484d;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 720px) {
+
+    .d-icon,
+    .cursor {
+        display: none;
+    }
+
+    .wordmark {
+        white-space: normal;
+    }
+
+    .desk-center {
+        padding-bottom: 10rem;
     }
 }
