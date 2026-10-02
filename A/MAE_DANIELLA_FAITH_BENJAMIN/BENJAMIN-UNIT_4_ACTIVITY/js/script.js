@@ -254,9 +254,9 @@ function makeProjectDetails() {
         `;
     }
 
-    let liveLinkHtml = "";
+    let statusHtml = escapeHtml(project.status || "-");
     if (project.link && project.link[1]) {
-        liveLinkHtml = `<p class="case-study-live"><a href="${escapeHtml(project.link[1])}" target="_blank" rel="noopener">Visit ${escapeHtml(project.link[0])} <span aria-hidden="true">&#8599;</span></a></p>`;
+        statusHtml += `, visit at <a class="case-study-status-link" href="${escapeHtml(project.link[1])}" target="_blank" rel="noopener">${escapeHtml(project.link[0])}</a>`;
     }
 
     caseStudy.innerHTML = `
@@ -272,11 +272,9 @@ function makeProjectDetails() {
         <dl class="case-study-facts">
             <div><dt>My role</dt><dd>${escapeHtml(project.role || "-")}</dd></div>
             <div><dt>Timeline</dt><dd>${escapeHtml(project.period || "-")}</dd></div>
-            <div><dt>Status</dt><dd>${escapeHtml(project.status || "-")}</dd></div>
+            <div><dt>Status</dt><dd>${statusHtml}</dd></div>
             <div><dt>Built with</dt><dd>${stackText}</dd></div>
         </dl>
-
-        ${liveLinkHtml}
 
         <section class="case-study-section">
             <h2>My contributions</h2>
