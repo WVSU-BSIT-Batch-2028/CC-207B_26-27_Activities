@@ -2,50 +2,57 @@
 
 /* Theme */
 .app {
-  --page: #ffffff;
-  --back: #230080;
-  --back-text: #ffffff;
-  --front: #3f8fc0;
-  --title: #230080;
-  --script: #ffffff;
-  --front-tab-text: #230080;
-  --paper: #fffef9;
-  --ink: #14213d;
-  --bar: #e6e1f5;
-  --tab: #d3cbee;
-  --tab-hover: #f1eefb;
-  --chip: #e6e1f5;
-  --rule: #d3cbee;
-  --muted: #4a4f5c;
-  --link: #0a4fc4;
-  --btn-bg: #230080;
+  --page: #faf4e4;
+  --back: #d8bd7a;
+  --back-text: #483a21;
+  --front: #edcf86;
+  --title: #49371c;
+  --script: #6a3c2f;
+  --front-tab-text: #3e321e;
+  --paper: #fffdf6;
+  --ink: #342f25;
+  --bar: #e8dcbb;
+  --tab: #91c77c;
+  --tab-green: #91c77c;
+  --tab-purple: #b89ad8;
+  --tab-blue: #83b9de;
+  --tab-hover: #f2dc9d;
+  --chip: #e2e7cf;
+  --rule: #c7a76a;
+  --muted: #5e5749;
+  --link: #315e88;
+  --btn-bg: #641919;
   --btn-text: #ffffff;
-  --btn-hover: #3a1bb0;
-  --focus: #ff8a00;
+  --btn-hover: #58302b;
+  --focus: #ffc928;
   --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
   --script-font: 'Pinyon Script', 'Snell Roundhand', 'Brush Script MT', cursive;
 }
 
 .app[data-theme='dark'] {
-  --page: #0b0e17;
-  --back: #25157a;
-  --front: #17496b;
-  --title: #ffffff;
-  --script: #bfe3ff;
-  --front-tab-text: #ffffff;
-  --paper: #161b2b;
-  --ink: #eef1f7;
-  --bar: #1f2740;
-  --tab: #2a3556;
-  --tab-hover: #36456f;
-  --chip: #2a3556;
-  --rule: #34405a;
-  --muted: #b4bccb;
-  --link: #8ab4ff;
-  --btn-bg: #eef1f7;
-  --btn-text: #230080;
-  --btn-hover: #ffffff;
-  --focus: #ffb347;
+  --page: #171913;
+  --back: #76613b;
+  --back-text: #fff4d8;
+  --front: #b49352;
+  --title: #2b2416;
+  --script: #f3e4b2;
+  --front-tab-text: #211d14;
+  --paper: #24251f;
+  --ink: #f5efdb;
+  --bar: #49412e;
+  --tab: #376b42;
+  --tab-green: #376b42;
+  --tab-purple: #66478b;
+  --tab-blue: #315f86;
+  --tab-hover: #655333;
+  --chip: #354333;
+  --rule: #8e7547;
+  --muted: #d4cfb9;
+  --link: #9ac9ed;
+  --btn-bg: #548c5c;
+  --btn-text: #ffffff;
+  --btn-hover: #3c6f46;
+  --focus: #ffdf55;
 }
 
 /* remove remaining vite starter layout */
@@ -156,6 +163,16 @@
   color: var(--back-text);
 }
 
+.front-tab-name {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
 .back {
   margin-top: var(--tab-h);
   min-height: 540px;
@@ -201,15 +218,26 @@
   cursor: pointer;
 }
 
+[role='tab']:nth-child(1) {
+  background: var(--tab-green);
+}
+
+[role='tab']:nth-child(2) {
+  background: var(--tab-purple);
+}
+
+[role='tab']:nth-child(3) {
+  background: var(--tab-blue);
+}
+
 [role='tab'][aria-selected='true'] {
-  background: var(--paper);
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
 }
 
 [role='tab']:hover {
-  background: var(--tab-hover);
+  filter: brightness(0.92);
 }
 
 .panel {
@@ -396,6 +424,7 @@ h3 {
 /* Buttons & focus */
 .btn {
   display: inline-block;
+  max-width: 100%;
   font: inherit;
   font-weight: 700;
   text-decoration: none;
@@ -406,6 +435,23 @@ h3 {
   padding: 0.7rem 1.25rem;
   min-height: 44px;
   cursor: pointer;
+}
+
+.email-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+  vertical-align: -4px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.email-link {
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .btn:hover {
@@ -556,6 +602,36 @@ h3 {
 }
 
 @media (max-width: 520px) {
+  .info-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem 0.5rem 0;
+  }
+
+  [role='tablist'] {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    gap: 0.15rem;
+  }
+
+  [role='tab'] {
+    min-width: 0;
+    padding: 0.55rem 0.25rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .info-bar > .btn-quiet {
+    width: 100%;
+    margin-bottom: 0.25rem;
+    text-align: center;
+  }
+
+  .btn {
+    padding: 0.65rem 0.9rem;
+  }
+
   .panel {
     padding: 1.25rem 1rem 0;
   }

@@ -149,8 +149,15 @@ function App() {
               {tab === 2 && (
                 <>
                   <h2>Contact</h2>
-                  <p>I'm looking for a summer design internship. Email is the quickest way to reach me.</p>
-                  <p><a className="btn" href={`mailto:${me.email}`}>Email {me.email}</a></p>
+                  <p>I'm looking for an internship or opportunity to further enhance my skills and contribute to a dynamic team. Email is the quickest way to reach me.</p>
+                  <p>
+                    <a className="btn email-link" href={`mailto:${me.email}`}>
+                      <svg className="email-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7" />
+                      </svg>
+                      Email {me.email}
+                    </a>
+                  </p>
                   <ul className="link-list">
                     {me.links.map((l) => (
                       <li key={l.label}>
@@ -182,7 +189,9 @@ function App() {
 
         {/* Front folder */}
         <div className="front">
-          <span className="front-tab" aria-hidden="true">{me.name}</span>
+          <span className="front-tab" aria-hidden="true">
+            <span className="front-tab-name">{me.name}</span>
+          </span>
           <p className="title" aria-hidden="true">
             <span className="big">{me.title}</span>
             <span className="script">{me.script}</span>
