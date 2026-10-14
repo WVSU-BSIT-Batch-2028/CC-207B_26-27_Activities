@@ -36,6 +36,10 @@ class _JoinFormScreenState extends State<JoinFormScreen> {
   void _submit() {
     // TODO 9: Validate the form and stop (return) if it is not valid. Then
     //   save it so every onSaved runs.
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+    _formKey.currentState!.save();  
     final registration = Registration(
       fullName: _fullName,
       email: _email,
@@ -54,6 +58,7 @@ class _JoinFormScreenState extends State<JoinFormScreen> {
     );
     // TODO 10: Close this screen and send `registration` back to the screen
     //   that opened it.
+    Navigator.of(context).pop(registration);
   }
 
   void _reset() {
@@ -104,6 +109,11 @@ class _JoinFormScreenState extends State<JoinFormScreen> {
                 // TODO 11: Return 'Enter your WVSU email' when empty, 'Use
                 //   your school email, like juan@wvsu.edu.ph' when it does not
                 //   match _emailPattern, and null when valid.
+                if (value == null || value.trim().isEmpty) {
+                  return 'Enter your WVSU email';
+                } else if (!_emailPattern.hasMatch(value.trim())) {
+                  return 'Use your school email, like juan.delacruz@wvsu.edu.ph';
+                }
                 return null;
               },
               onSaved: (value) => _email = value!.trim(),
@@ -121,9 +131,16 @@ class _JoinFormScreenState extends State<JoinFormScreen> {
               // TODO 12: Allow digits only with
               //   FilteringTextInputFormatter.digitsOnly, and return 'Enter at
               //   least 6 digits' when the value is shorter than 6.
-              inputFormatters: const <TextInputFormatter>[],
-              validator: (value) => null,
-              onSaved: (value) => _studentId = value!,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              validator: (value) {
+                if (value == null || value.trim().isEmpty) {
+                  return 'Enter your student ID number';
+                } else if (value.trim().length < 6) {
+                  return 'Enter at least 6 digits';
+                }
+                return null;
+              },
+              onSaved: (value) => _studentId = value!.trim(),
             ),
             const SizedBox(height: 8),
             DropdownButtonFormField<int>(
@@ -168,17 +185,17 @@ class _JoinFormScreenState extends State<JoinFormScreen> {
               max: 10,
               divisions: 9,
               label: '${_hours.round()} h',
-              onChanged: (value) {},
+              onChanged: (value) => setState(() => _hours = value),
             ),
             SwitchListTile(
               title: const Text('Send me event updates'),
               value: _wantsUpdates,
-              onChanged: (value) {},
+              onChanged: (value) => setState(() => _wantsUpdates = value),
             ),
             CheckboxListTile(
               title: const Text('I agree to follow the org constitution'),
               value: _agreed,
-              onChanged: (value) {},
+              onChanged: (value) => setState(() => _agreed = value ?? false),
               controlAffinity: ListTileControlAffinity.leading,
             ),
             const SizedBox(height: 16),
@@ -195,7 +212,7 @@ class _JoinFormScreenState extends State<JoinFormScreen> {
                   child: FilledButton(
                     // TODO 14: Keep Submit disabled (null) until _agreed is
                     //   true; then call _submit.
-                    onPressed: _submit,
+                    onPressed: _agreed ? _submit : null,
                     child: const Text('Submit'),
                   ),
                 ),
