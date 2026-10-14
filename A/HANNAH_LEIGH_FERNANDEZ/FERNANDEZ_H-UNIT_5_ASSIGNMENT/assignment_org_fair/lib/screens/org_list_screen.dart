@@ -28,7 +28,7 @@ class _OrgListScreenState extends State<OrgListScreen> {
     super.initState();
     // TODO 1: Start loading the orgs ONCE: store repository.fetchOrgs() in
     //   _orgsFuture.
-    _orgsFuture = Future.value(const <Org>[]); // replace this line
+    _orgsFuture = widget.repository.fetchOrgs(); 
   }
 
   // EXPLAIN E2: Why is _searchController disposed here? What would happen
@@ -41,7 +41,10 @@ class _OrgListScreenState extends State<OrgListScreen> {
 
   void _reload() {
     // TODO 2: Fetch the orgs again inside setState() so the FutureBuilder
-    //   rebuilds with the new Future. Use a block body { }, not =>.
+    //   rebuilds with the new Future. Use a block body { }, not =>.\
+    setState(() {
+      _orgsFuture = widget.repository.fetchOrgs();
+    });
   }
 
   void _setServerMode(ServerMode mode) {
@@ -52,6 +55,13 @@ class _OrgListScreenState extends State<OrgListScreen> {
   void _toggleFavorite(Org org) {
     // TODO 3: Inside setState(), add org.id to _favoriteIds, or remove it if
     //   it is already there.
+    setState(() {
+      if (_favoriteIds.contains(org.id)) {
+        _favoriteIds.remove(org.id);
+      } else {
+        _favoriteIds.add(org.id);
+      }
+    });
   }
 
   void _hide(Org org) {
@@ -127,11 +137,32 @@ class _OrgListScreenState extends State<OrgListScreen> {
           // TODO 4: If snapshot.hasError, return a StateMessage with
           //   Icons.wifi_off, the error text (without "Exception: "), and a
           //   FilledButton.icon labelled "Try again" that calls _reload.
+          if (snapshot.hasError) {
+            return StateMessage(
+              icon: Icons.wifi_off,
+              text: snapshot.error.toString().replaceFirst('Exception: ', ''),
+              action: FilledButton.icon(
+                onPressed: _reload,
+                icon: const Icon(Icons.refresh),
+                label: const Text('Try again'),
+              ),
+            );  
+          }
           final orgs = snapshot.data ?? const <Org>[];
           // 3. Empty
           // TODO 5: If orgs is empty, return a StateMessage with Icons.inbox,
           //   the text "No organizations have signed up for the fair yet.", and
           //   an OutlinedButton "Refresh" that calls _reload.
+          if (orgs.isEmpty) {
+            return StateMessage(
+              icon: Icons.inbox,
+              text: "No organizations have signed up for the fair yet.",
+              action: OutlinedButton(
+                onPressed: _reload,
+                child: const Text('Refresh'),
+              ),
+            );
+          }
           // 4. Success
           return _buildOrgs(orgs);
         },
@@ -173,7 +204,9 @@ class _OrgListScreenState extends State<OrgListScreen> {
                     ),
             ),
             // TODO 6: Save what the user typed into _query with setState().
-            onChanged: (value) {},
+            onChanged: (value) {
+              setState(() => _query = value);
+            },
           ),
         ),
         // EXPLAIN E5: Remove this Expanded and run the app. What error do
@@ -223,6 +256,16 @@ class _OrgListScreenState extends State<OrgListScreen> {
     // TODO 7: Wrap `card` in a Dismissible with key: ValueKey(org.id),
     //   onDismissed calling _hide(org), and a background (any colored Container
     //   with an icon).
-    return card;
+    return Dismissible(
+      key: ValueKey(org.id),
+      onDismissed: (direction) => _hide(org),
+      background: Container(
+        color: const Color.fromARGB(255, 106, 2, 155),
+        alignment: Alignment.centerLeft,
+        padding: const EdgeInsets.only(left: 16),
+        child: const Icon(Icons.departure_board_sharp, color: Colors.white),
+      ),
+      child: card,
+    );
   }
 }
