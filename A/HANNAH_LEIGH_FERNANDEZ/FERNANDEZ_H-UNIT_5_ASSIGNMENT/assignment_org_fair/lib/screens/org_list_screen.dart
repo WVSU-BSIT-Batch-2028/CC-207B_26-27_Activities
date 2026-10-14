@@ -256,16 +256,17 @@ class _OrgListScreenState extends State<OrgListScreen> {
     // TODO 7: Wrap `card` in a Dismissible with key: ValueKey(org.id),
     //   onDismissed calling _hide(org), and a background (any colored Container
     //   with an icon).
-    return Dismissible(
-      key: ValueKey(org.id),
-      onDismissed: (direction) => _hide(org),
-      background: Container(
-        color: const Color.fromARGB(255, 106, 2, 155),
-        alignment: Alignment.centerLeft,
-        padding: const EdgeInsets.only(left: 16),
-        child: const Icon(Icons.departure_board_sharp, color: Colors.white),
-      ),
-      child: card,
-    );
+  return Dismissible(
+    key: ValueKey(org.id),
+    direction: DismissDirection.endToStart,       
+    onDismissed: (_) => _hide(org),
+    background: Container(
+      color: const Color.fromARGB(255, 106, 2, 155),
+      alignment: Alignment.centerRight,           
+      padding: const EdgeInsets.only(right: 16),
+      child: const Icon(Icons.hide_source_rounded, color: Colors.white),
+    ),
+    child: card,
+  );
   }
 }
