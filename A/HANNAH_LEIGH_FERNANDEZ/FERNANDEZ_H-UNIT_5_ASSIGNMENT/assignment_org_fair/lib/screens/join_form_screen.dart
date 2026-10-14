@@ -112,7 +112,7 @@ class _JoinFormScreenState extends State<JoinFormScreen> {
                 if (value == null || value.trim().isEmpty) {
                   return 'Enter your WVSU email';
                 } else if (!_emailPattern.hasMatch(value.trim())) {
-                  return 'Use your school email, like juan.delacruz@wvsu.edu.ph';
+                  return 'Use your school email, like juan@wvsu.edu.ph';
                 }
                 return null;
               },
