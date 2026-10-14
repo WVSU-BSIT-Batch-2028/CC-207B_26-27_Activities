@@ -1,0 +1,30 @@
+name: dasa_unit5_exercise
+description: "A Flutter Unit 5 exercise app with profile and pet screens."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.5
+
+dependencies:
+  audioplayers: ^6.1.0
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/sounds/
+
+  # Place your local files in these folders if they are still missing:
+  # assets/images/profile.jpg
+  # assets/images/pet.jpg
+  # assets/sounds/pet_sound.mp3
+
