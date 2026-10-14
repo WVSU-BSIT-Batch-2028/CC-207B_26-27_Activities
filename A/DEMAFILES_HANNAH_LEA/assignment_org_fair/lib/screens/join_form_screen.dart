@@ -16,6 +16,8 @@ class JoinFormScreen extends StatefulWidget {
 class _JoinFormScreenState extends State<JoinFormScreen> {
   // EXPLAIN E10: What is a GlobalKey<FormState>, and which three methods
   // does it let us call on the form?
+  final _formKey = GlobalKey<FormState>();
+
   // Filled in by each field's onSaved when the form is saved.
   String _fullName = '';
   String _email = '';
