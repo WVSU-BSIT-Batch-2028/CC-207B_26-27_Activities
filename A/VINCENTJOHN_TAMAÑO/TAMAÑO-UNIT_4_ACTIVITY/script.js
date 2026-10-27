@@ -80,7 +80,6 @@
     if (label) label.textContent = config.label;
     if (icon) icon.className = config.icon;
 
-    // Apply translation if chinese mode, else restore EN
     i18nMap.forEach(item => {
       const el = document.querySelector(item.sel);
       if (el) {
@@ -101,9 +100,7 @@
     setTheme(next);
   });
 
-  /* ==========================================================================
-     2. HASH-BASED PAGE ROUTER & TERMINAL OPENER
-     ========================================================================== */
+
   const pages = ['home', 'about', 'projects'];
   function route() {
     const rawName = location.hash.replace('#', '');
@@ -116,14 +113,14 @@
       if (el) el.hidden = p !== current;
     });
 
-    // Update active nav styling
+    
     document.querySelectorAll('nav a').forEach(a => {
       const isTarget = isTerminal ? a.dataset.page === 'terminal' : a.dataset.page === current;
       if (isTarget) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     });
 
-    // If navigating to terminal, scroll down smoothly and focus the prompt
+   
     if (isTerminal) {
       setTimeout(() => {
         const term = document.getElementById('terminal-card');
@@ -131,7 +128,7 @@
         if (term) {
           term.scrollIntoView({ behavior: 'smooth', block: 'center' });
           term.classList.remove('pulse');
-          void term.offsetWidth; // re-trigger animation
+          void term.offsetWidth; 
           term.classList.add('pulse');
         }
         if (input) input.focus();
@@ -141,7 +138,7 @@
     }
   }
 
-  // Handle re-clicking terminal link when already on #terminal or #about
+ 
   const navTerminalBtn = document.getElementById('nav-terminal');
   if (navTerminalBtn) {
     navTerminalBtn.addEventListener('click', (e) => {
@@ -163,20 +160,18 @@
   window.addEventListener('hashchange', route);
   route();
 
-  // Dynamic copyright year in footer
+
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ==========================================================================
-     3. FEATURE 1: TYPING EFFECT (Home page)
-     ========================================================================== */
+
   const words = ['IT Support', 'Networking', 'Sysadmin', 'Cybersecurity'];
   const typingEl = document.getElementById('typing-text');
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (typingEl) {
     if (prefersReduced) {
-      // Respect user preference: display first word statically without animation
+     
       typingEl.textContent = words[0];
     } else {
       let wordIndex = 0;
@@ -187,39 +182,37 @@
         const currentWord = words[wordIndex];
 
         if (isDeleting) {
-          // Deleting characters
+         
           charIndex--;
           typingEl.textContent = currentWord.substring(0, charIndex);
 
           if (charIndex === 0) {
             isDeleting = false;
             wordIndex = (wordIndex + 1) % words.length;
-            setTimeout(typeLoop, 400); // Pause before typing next word
+            setTimeout(typeLoop, 400); 
             return;
           }
-          setTimeout(typeLoop, 50); // Deletion speed
+          setTimeout(typeLoop, 50); 
         } else {
-          // Typing characters
+          
           charIndex++;
           typingEl.textContent = currentWord.substring(0, charIndex);
 
           if (charIndex === currentWord.length) {
             isDeleting = true;
-            setTimeout(typeLoop, 1800); // Pause while word is fully typed
+            setTimeout(typeLoop, 1800); 
             return;
           }
-          setTimeout(typeLoop, 100); // Typing speed
+          setTimeout(typeLoop, 100);
         }
       }
 
-      // Initial pause before deleting first word
+ 
       setTimeout(typeLoop, 1800);
     }
   }
 
-  /* ==========================================================================
-     4. FEATURE 2: PROJECT FILTER (Projects page)
-     ========================================================================== */
+
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card.project');
 
@@ -227,14 +220,14 @@
     filterBtn.addEventListener('click', () => {
       const selectedCategory = filterBtn.dataset.filter;
 
-      // Update active state and aria-pressed attributes
+ 
       filterBtns.forEach(b => {
         const isActive = b === filterBtn;
         b.classList.toggle('active', isActive);
         b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
 
-      // Filter project cards according to data-category
+
       projectCards.forEach(card => {
         const category = card.dataset.category;
         const matches = selectedCategory === 'all' || category === selectedCategory;
@@ -243,9 +236,7 @@
     });
   });
 
-  /* ==========================================================================
-     5. FEATURE 3: FAKE TERMINAL (About page)
-     ========================================================================== */
+
   const terminalCard = document.getElementById('terminal-card');
   const terminalWindow = document.getElementById('terminal-window');
   const terminalHistory = document.getElementById('terminal-history');
@@ -256,7 +247,6 @@
     const commandHistory = [];
     let historyCursor = -1;
 
-    // Helper: append a terminal line safely using textContent (prevent HTML injection)
     function appendTerminalOutput(command, outputText, isError = false) {
       const entry = document.createElement('div');
       entry.className = 'terminal-entry';
@@ -276,16 +266,14 @@
       }
 
       terminalHistory.appendChild(entry);
-      // Auto-scroll to latest output
       if (terminalWindow) {
         terminalWindow.scrollTop = terminalWindow.scrollHeight;
       }
     }
 
-    // Welcome message on load
+  
     appendTerminalOutput(null, "Welcome to VJT Terminal v1.0. Type 'help' to see available commands.");
 
-    // Focus input when clicking anywhere inside the terminal window
     if (terminalCard) {
       terminalCard.addEventListener('click', (e) => {
         if (e.target !== terminalInput) {
@@ -294,7 +282,7 @@
       });
     }
 
-    // Handle command execution
+
     function executeCommand(rawInput) {
       const cmd = rawInput.trim();
       if (!cmd) return;
