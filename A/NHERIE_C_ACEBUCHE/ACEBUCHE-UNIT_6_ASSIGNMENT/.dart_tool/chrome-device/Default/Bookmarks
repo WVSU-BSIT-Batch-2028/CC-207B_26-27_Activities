@@ -1,0 +1,469 @@
+{
+   "checksum": "cc2d40adde6095c0b46a23a35bd0fede",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13368689478048144",
+            "date_last_used": "0",
+            "guid": "bf985370-b590-4f60-8dc8-02522804532c",
+            "id": "7",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "ICT Quarter 1 (Module 1) Computers Historyand Characteristics - &quot;Designed by macrovector / - Studocu",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.studocu.com/ph/document/samal-national-high-school/education/ict-quarter-1-module-1-computers-historyand-characteristics/33882056",
+            "visit_count": 0
+         }, {
+            "date_added": "13380456661301338",
+            "date_last_used": "0",
+            "guid": "201d9b6a-3215-4700-ba36-ef474812ed47",
+            "id": "8",
+            "name": "Obsidian BookmarkLets Code",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "javascript:(function(){var%20i%20%3Ddocument.location.href%3B%20document.location.href%3D%22obsidian%3A%2F%2Fweb-open%3Furl%3D%22%20%2B%20encodeURIComponent%28i%29%3B})();",
+            "visit_count": 0
+         }, {
+            "date_added": "13372697763862748",
+            "date_last_used": "13396948482234526",
+            "guid": "f6389151-2059-4500-be7c-ff8bd227b11c",
+            "id": "9",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Discrete Mathematics | Neso Academy",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.nesoacademy.org/cs/07-discrete-mathematics",
+            "visit_count": 2
+         }, {
+            "date_added": "13380563838913144",
+            "date_last_used": "0",
+            "guid": "7267fa51-9a0c-43c6-9ab3-3cf2f06bfb02",
+            "id": "10",
+            "name": "Obsidian BookmarkLets Code",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "javascript:(function(){var%20i%20%3Ddocument.location.href%3B%20document.location.href%3D%22obsidian%3A%2F%2Fweb-open%3Furl%3D%22%20%2B%20encodeURIComponent%28i%29%3B})();",
+            "visit_count": 0
+         }, {
+            "date_added": "13384599105051271",
+            "date_last_used": "13400306249011999",
+            "guid": "ea8641b4-f9d7-4b74-a192-8563b9b19a85",
+            "id": "11",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "sit and reach test with tape measure - Search Images",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.bing.com/images/search?q=sit%20and%20reach%20test%20with%20tape%20measure&qs=RI&form=QBIRMH&sp=1&lq=0&pq=sit%20and%20reach%20tape%20mea&sc=10-22&cvid=DE47754A1D2342F8A2B15C951D37ACB9&first=1",
+            "visit_count": 2
+         }, {
+            "date_added": "13387479150101204",
+            "date_last_used": "13431512535714714",
+            "guid": "a5e8c49e-7c2b-44aa-a50a-d8d011558c07",
+            "id": "12",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Internet Archive: Digital Library of Free & Borrowable Texts, Movies, Music & Wayback Machine",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://archive.org/",
+            "visit_count": 7
+         }, {
+            "date_added": "13387480331454920",
+            "date_last_used": "13402410060293461",
+            "guid": "20dd7e58-fe46-4b0f-9754-85615e959b6c",
+            "id": "13",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Anna’s Archive",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://annas-archive.org/",
+            "visit_count": 12
+         }, {
+            "date_added": "13396255523592450",
+            "date_last_used": "13398966406585164",
+            "guid": "fd5ef901-43c5-45bd-9ed2-d37b8f7b2063",
+            "id": "14",
+            "name": "THE OBJECT-ORIENTED THOUGHT PROCESS Books Free Downloads",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://it-ebooks-search.info/search?q=The+Object-Oriented+Thought+Process+",
+            "visit_count": 2
+         }, {
+            "date_added": "13396255698373855",
+            "date_last_used": "0",
+            "guid": "b0685a30-9a74-4032-8b03-4f832c8d0944",
+            "id": "15",
+            "name": "dBooks - Free download open books",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.dbooks.org/",
+            "visit_count": 1
+         }, {
+            "date_added": "13396603233160738",
+            "date_last_used": "0",
+            "guid": "4da3f484-2699-4920-91fb-ee706c725a36",
+            "id": "16",
+            "name": "Home / Cosmos",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.cosmos.so/home",
+            "visit_count": 1
+         }, {
+            "date_added": "13396948190357424",
+            "date_last_used": "0",
+            "guid": "43cc5a10-337d-4214-92d9-3f1907c8fae4",
+            "id": "17",
+            "name": "Explore - LeetCode",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://leetcode.com/explore/",
+            "visit_count": 1
+         }, {
+            "date_added": "13398505413620219",
+            "date_last_used": "0",
+            "guid": "a796a3bb-99c7-434e-b04e-4e7a3c2546eb",
+            "id": "18",
+            "name": "Data Structures and Algorithms Cheat Sheet + PDF | Zero To Mastery",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://zerotomastery.io/cheatsheets/data-structures-and-algorithms-cheat-sheet/?ref=dailydev",
+            "visit_count": 1
+         }, {
+            "date_added": "13399178385557353",
+            "date_last_used": "0",
+            "guid": "abf9378e-66cf-4646-8644-6f3a926b741d",
+            "id": "19",
+            "name": "Student Resources | Liang, Introduction to Java Programming and Data Structures, Comprehensive Version, 12/e",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://media.pearsoncmg.com/ph/esm/ecs_liang_ijp_12/cw/",
+            "visit_count": 1
+         }, {
+            "date_added": "13399480258668168",
+            "date_last_used": "0",
+            "guid": "3be9b0ab-11cd-4d5d-b210-b7c0c3f036e7",
+            "id": "20",
+            "name": "Suitcase packing | Codewars",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.codewars.com/kata/5c556845d7e0334c74698706",
+            "visit_count": 1
+         }, {
+            "date_added": "13399480266863292",
+            "date_last_used": "0",
+            "guid": "02e9b5e2-3995-46a2-844f-e080457a6ab7",
+            "id": "21",
+            "name": "Home | Codewars",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.codewars.com/dashboard",
+            "visit_count": 1
+         }, {
+            "date_added": "13399545753772384",
+            "date_last_used": "0",
+            "guid": "b26b383f-9570-4caf-b6b9-4faa65c8854b",
+            "id": "22",
+            "name": "Logic Building Problems - GeeksforGeeks",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.geeksforgeeks.org/dsa/logic-building-problems/",
+            "visit_count": 1
+         }, {
+            "date_added": "13399546666525593",
+            "date_last_used": "13400867281791207",
+            "guid": "7452473d-a4f9-4f55-bf7e-10e8e8d22856",
+            "id": "23",
+            "name": "Mathematics For Computer Science - GeeksforGeeks",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.geeksforgeeks.org/computer-science-fundamentals/mathematics-for-computer-science/",
+            "visit_count": 2
+         }, {
+            "date_added": "13399547361586434",
+            "date_last_used": "0",
+            "guid": "d0b11052-5553-4c5b-9044-b2334060e449",
+            "id": "24",
+            "name": "Problem of the Day | GeeksforGeeks | A computer science portal for geeks",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.geeksforgeeks.org/problem-of-the-day",
+            "visit_count": 1
+         }, {
+            "date_added": "13399557373749448",
+            "date_last_used": "13400320362232867",
+            "guid": "a1a436bc-6af7-4bff-a1cc-1d9abf6ff7f5",
+            "id": "25",
+            "name": "Analysis of Algorithms - GeeksforGeeks",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.geeksforgeeks.org/dsa/analysis-of-algorithms/",
+            "visit_count": 2
+         }, {
+            "children": [ {
+               "date_added": "13400306302047089",
+               "date_last_used": "0",
+               "guid": "a411cd98-7e77-4a28-bac2-2f25562fa616",
+               "id": "27",
+               "name": "Web Development Technologies - GeeksforGeeks",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://www.geeksforgeeks.org/web-tech/web-technology/",
+               "visit_count": 1
+            }, {
+               "date_added": "13400306850529198",
+               "date_last_used": "0",
+               "guid": "095c8abf-70e1-4fe8-9ab2-de958696ec9f",
+               "id": "28",
+               "name": "HTML Tutorial - GeeksforGeeks",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://www.geeksforgeeks.org/html/html-tutorial/",
+               "visit_count": 1
+            }, {
+               "date_added": "13400314386183881",
+               "date_last_used": "0",
+               "guid": "b7ac5fe1-273b-4d72-b17a-9cdecd875328",
+               "id": "29",
+               "name": "[JavaScript] - Creating a Music Player with JavaScript Code | SheCodes",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://www.shecodes.io/athena/2074-creating-a-music-player-with-javascript-code?utm_source=chatgpt.com",
+               "visit_count": 1
+            }, {
+               "date_added": "13400516351488817",
+               "date_last_used": "13400831718507122",
+               "guid": "67853059-3b38-4cce-af2f-2694ebb71627",
+               "id": "30",
+               "name": "Sidebar Menu with Dark/Light Theme Toggle in HTML CSS & JavaScript",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://www.codingnepalweb.com/sidebar-with-dark-light-themes-html-javascript/",
+               "visit_count": 2
+            }, {
+               "date_added": "13400667594630725",
+               "date_last_used": "13404144192949773",
+               "guid": "8f8ef826-d3c4-4979-841b-9d818ede82f0",
+               "id": "31",
+               "name": "Palindrome Program in Java - Tpoint Tech",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://www.tpointtech.com/palindrome-program-in-java",
+               "visit_count": 4
+            }, {
+               "date_added": "13400764735825456",
+               "date_last_used": "0",
+               "guid": "f8817fa5-345f-44de-bcdc-d53dd16fdc7c",
+               "id": "32",
+               "name": "Lofi Cafe - Free Lofi Music to Chill, Study, and Relax",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://loficafe.net/",
+               "visit_count": 1
+            }, {
+               "date_added": "13401271719495806",
+               "date_last_used": "0",
+               "guid": "235f7175-6bb5-4d90-9845-c4f485186ea3",
+               "id": "33",
+               "name": "JOptionPane (Java Platform SE 8 )",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://docs.oracle.com/javase/8/docs/api/javax/swing/JOptionPane.html",
+               "visit_count": 1
+            }, {
+               "date_added": "13406811889934206",
+               "date_last_used": "0",
+               "guid": "dcd929ba-cb1e-4db8-afbe-73dc2b6d3d73",
+               "id": "34",
+               "name": "cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css",
+               "visit_count": 1
+            }, {
+               "date_added": "13407748982228718",
+               "date_last_used": "0",
+               "guid": "5630d309-c644-48cd-8e76-d4714a007a81",
+               "id": "35",
+               "name": "final report Veterinary-RE.pdf",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://m.mu.edu.sa/sites/default/files/content/2020/09/final%20report%20Veterinary-RE.pdf",
+               "visit_count": 1
+            }, {
+               "date_added": "13408198593810897",
+               "date_last_used": "0",
+               "guid": "0def7428-6816-458f-9141-e8547c04f19f",
+               "id": "36",
+               "name": "Beautiful Free Images & Pictures | Unsplash",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://unsplash.com/",
+               "visit_count": 1
+            }, {
+               "date_added": "13411980955024556",
+               "date_last_used": "0",
+               "guid": "77305ff8-811e-430b-a98d-e86432960364",
+               "id": "37",
+               "name": "Spotify – Advertisement",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://open.spotify.com/?flow_ctx=5b30bc20-dc5e-47eb-9409-088fce6ff8d6%3A1767527998#_=_",
+               "visit_count": 1
+            } ],
+            "date_added": "13400306888489721",
+            "date_last_used": "0",
+            "date_modified": "13411980955024556",
+            "guid": "fa96ad56-1f6b-4e4e-82ec-34159d7e51bf",
+            "id": "26",
+            "name": "WebDev",
+            "source": "unknown",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13401982703313821",
+               "date_last_used": "0",
+               "guid": "a550f4cb-6b4c-45db-ad0c-ff40053be162",
+               "id": "39",
+               "name": "Algorithm and Data Structure Animations, Y. Daniel Liang",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://liveexample.pearsoncmg.com/liang/animation/animation.html",
+               "visit_count": 1
+            } ],
+            "date_added": "13401982738701475",
+            "date_last_used": "0",
+            "date_modified": "13401982738701475",
+            "guid": "0a768fd9-ed44-447b-837b-378a8dd5a28a",
+            "id": "38",
+            "name": "DSA",
+            "source": "unknown",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13412083627356954",
+               "date_last_used": "0",
+               "guid": "2c34f081-092d-4d00-9fd1-0ec01b8c30ea",
+               "id": "41",
+               "name": "Timed Drawing Exercises",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://practicedrawingthis.com/cgi-bin/morning-sketches-app-overview.cgi?timed=900&game=0&openas=timed&category=3d-anatomy",
+               "visit_count": 1
+            }, {
+               "date_added": "13432025184522676",
+               "date_last_used": "0",
+               "guid": "8d10d92d-d224-4163-a6a3-d6f0fc77e735",
+               "id": "42",
+               "name": "React",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://react.dev/",
+               "visit_count": 1
+            } ],
+            "date_added": "13412083661248567",
+            "date_last_used": "0",
+            "date_modified": "13432025184522676",
+            "guid": "21d077f3-fdff-4d63-8237-a6621002fd78",
+            "id": "40",
+            "name": "drawing",
+            "source": "unknown",
+            "type": "folder"
+         } ],
+         "date_added": "13437763042663855",
+         "date_last_used": "0",
+         "date_modified": "13399557373749448",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Favorites bar",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13437763042663855",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other favorites",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13437763042663855",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile favorites",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "workspaces_v2": {
+         "children": [ {
+            "children": [  ],
+            "date_added": "13418495023830312",
+            "date_last_used": "0",
+            "date_modified": "13418495023830312",
+            "guid": "c1a97e88-a779-4d61-a3f6-399e6e9f5f3d",
+            "id": "43",
+            "name": "Research",
+            "source": "unknown",
+            "type": "folder"
+         } ],
+         "date_added": "13437763042663855",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "75aa6670-344f-549d-b742-660f029506ab",
+         "id": "5",
+         "name": "Workspaces",
+         "source": "unknown",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CkEKHgiIgQISCEPoXIihAQAAKg4QABgBIAAoBTAAOABAABIAKhhWbFhhSFlDUXhjMmNSaUFwRHVyZjNRPT1IA6AGDBKMAQgFEocBChx3UkJyWkwrNlBBOWF2S2dqTlA3SlhETGNmdnM9EiQ3OGFiMGFmYi1mZDIxLTUwNTgtYmRlOS0zMGM0NzhmYjliOWQYACAAKAAwieijmqUzOLfqo5qlM0C36qOapTNKHG5teDY1c1FEdnhJOFRnRWV2K0ErbnR0b1NuND1lAAAAAMI+AmAAEq8BCCYSqgEKHGdXdDZId1lCbGkrSnZMT1k4bTdkZHFsM3pnVT0SJDBhNzY4ZmQ5LWVkNDQtNDQ3Yi04MzdiLTM3OGE4ZGQ1YTI4YRgAIAAoADDQkNWdkzM4uZLVnZMzQLmS1Z2TM0ocTUU0V0lselpXajYrVTVmQm1NbzlaMDVSRXZRPVohIh///9xjVnJWdGUxcEZTZE02N21wMjErcmZWVXpyYzg9ZQAAAADCPgJgABKuAQglEqkBChxWTDJmWE4zWGJ5Z3lYRVJkY3VVYmRQeWE5bHc9EiQ3NzMwNWZmOC04MTFlLTQzMGItYTk4ZC1lODY0MzI5NjAzNjQYACAAKAAw4uyXvbgzOOTtl724M0Dk7Ze9uDNKHDNNMG82YldLNjl4TDFNWXgrMkdxcDVQSFpCOD1aICIe/7hmNHd6ZjFkMVA0dzRwOThFVHgwVnFlQzJBYzg9ZTaHcFbCPgJgBRKtAQgjEqgBChwrNk1BZkRqYjdhQUlXZ0JFOHVUcFhyMG9RclU9EiQ1NjMwZDMwOS1jNjQ0LTQ4Y2QtOGU3Ni1kNDcxNGEwMDdhODEYACAAKAAwlsuc26gzOK3MnNuoM0CtzJzbqDNKHE4xc2dYN0FOM01obUtPMW8zNjRweUpWaWlKaz1aHyId/kpma2JXY0FjcTV1M3F4d2RMSVRnRDY4OXMrVT1l0DZ9c8I+AmAFEq0BCCESqAEKHFo0WEtDWHhBbXdwelp5c0ExbjFSUE9hYWxpTT0SJDIzNWY3MTc1LTZiYjUtNGQ5MC05ODQ1LWM0ZjQ4NTE4NmVhMxgAIAAoADCH/s/KkDM4xP/PypAzQMT/z8qQM0occjRzZEN4b3lnT1hDNzI1Rkw4Y0dtUmNtUzdjPVofIh37WnNLdTN5ZGx1eHo5SnpieGFEYjFYYXFTVHhvPWW3CrLDwj4CYAUSrQEIIBKoAQocbE9qdThIUnZOSVM4NlVWdlR3b25TZXJtb1FrPRIkZjg4MTdmYTUtMzQ1Zi00NGRlLWJjZGMtZDUzZGQxNmZkYzdjGAAgACgAMNWR8NiOMzjWkvDYjjNA1pLw2I4zShxCOUEzYW5CUmpIVkpSQ3MyK2VHTmZhRUNCc1E9Wh8iHfdFTkNIM1g1UzZ4TmRXYW5sZktodDBZcm0zdFE9ZZyKCj3CPgJgBRKtAQgkEqgBChxHcDcxZWpqaWFoZjRPS2RvaVFvTVNXTFFsRk09EiQwZGVmNzQyOC02ODE2LTQ1OGYtOTE0MS1lODU0N2MwNGYxOWYYACAAKAAwvO3OsaozOKXvzrGqM0Cl786xqjNKHGlNeEx2M3V1amVDcnlEUUJraXVvdWtIbmx0bz1aHyId/3ErQXNTRFNKazdhbGMwVTE2TlByeFFhMG9udz1lbeqEFsI+AmAFEq0BCB8SqAEKHFA5SFJhWXZ4eUtqT3dmMDViRkpIWE5tdXk1ST0SJDhmOGVmODI2LWQzYzQtNDk3OS04NDFiLTlkODE4ZWRlODJmMBgAIAAoADCn26mkmzM43pHHqo4zQN6Rx6qOM0ocSDBpWnpGTndCdmhzMGlkQk1TZjJROEgrYzI4PVofIh3uczRXcDNybTRtVHg0SjgrcThYN0ozdkdIZVpBPWX0Asfkwj4CYAUSrQEIHhKoAQocY25pN0hTdUpCZ2h5YnFXelJKd1NvODZxRFZzPRIkNjc4NTMwNTktM2IzOC00Y2NlLWFmMmYtMjY5NGViYjcxNjI3GAAgACgAMOSr6PiOMziwgrjijTNAsIK44o0zShxFSEZoUmpNa3JzZC96Ynd2QytIRGhRTmdBK1U9Wh8iHdxaK250TWZWRHJNR1JLdnlwVGdtRjZtSHZYTjA9ZSVpmk3CPgJgBRKtAQgdEqgBChxYMkRTV05BcnA0NGdWSmd2NCsyWWozbUl4Y2s9EiRiN2FjNWZlMS0yNzNiLTRkNzItYjE3YS05Y2RlY2Q4NzUzMjgYACAAKAAw7PGQgo0zOOvykIKNM0Dr8pCCjTNKHHdLM3NtTVZyR0M4YXcwTEp3NFg3bnZFYll3VT1aHyIduGZmbHh2L0pyM0ZaY2p0MDJFcTNvVXpSZVBZQT1l37jodMI+AmAFEqwBCBwSpwEKHGtWbjB3a21lNWswcGlJaXhkZ0ZmRysrbGlKZz0SJDA5NWM4YWJmLTcwZTEtNGZlOC05YWIyLWRlOTU4Njk2ZWM5ZhgAIAAoADDbocf+jDM4qLHF/owzQKixxf6MM0ocSEhNeVg5U2k4anZOUXlRQmdzV2xPV2tHdi9FPVoeIhxwREFhOXdoeGU5NVhTWFBLRWVmRWlHeEtqclU9ZeoudvrCPgJgBRKvAQgaEqoBChxDczhFSlVPaE01SjlnK3JMcEx6Qm9CL2c1cmM9EiRmYTk2YWQ1Ni0xZjZiLTRlNGUtODJlYy0zNDE1OWQ3ZTUxYmYYACAAKAAw2qHH/owzOKqjx/6MM0Cqo8f+jDNKHGF1bGxsMlpSbmJXYVlLd1F6R2dEczViaXBzST1aISIf//+4bjVsVXg0MjNzYThaNmxQTzh3YUJVNjIyQ3dnPWUAAAAAwj4CYAASrgEIEhKpAQocNFdoUlBhV3N6dlZST1BqWHVBYktmb0h0WlBNPRIkYTc5NmEzYmItOTljNy00MzRlLWIwNGUtNGU3YTNjMjU0NmViGAAgACgAMIGIxqOGMzijicajhjNAo4nGo4YzShxoRXlYakJkT3NoUkRwNzVacGpxVm9ZdW5uWmc9WiAiHv/VYzZycms1ckh0WUROdXlvUlJhNGVMcTF6VG5VPWVuia5ywj4CYAUSrAEIGxKnAQocUXF2alc5L09Sb2VPWENMa1oyMGJzSXNOdjRFPRIkYTQxMWNkOTgtN2U3Ny00YTI4LWJhYzItMmYyNTU2MmZhNjE2GAAgACgAMKaPyP6MMzi/vKP+jDNAv7yj/owzShxNV0hDREZPZzBaZEpIZlEraWFiczJWcUxWSEU9Wh4iHGs5TzlqN1Z3QmJmYkFUOGtFM2FoTllVZjRlST1l6i52+sI+AmAFEq4BCBkSqQEKHHNIcnNua3dTbUVxWWx5YlEzdm0xcWFJVXFuaz0SJGExYTQzNmJjLTZhZjctNGJmZi1hMWNjLTFkOWFiZjZmZjdmNRgAIAAoADCB0f2EjTM4q8mUmYozQKvJlJmKM0oca28vbnB6YVZ0ZGVXeGJycE0xNzNmTnRHOU9JPVogIh7//2lUZXhlbUwyaXpvcGg3YVdyT1ZpVVJQRlJnWT1l6i52+sI+AmAFEq4BCBcSqQEKHHBOR085S3RqdEkvU0dLZkNTR05ISWN6MUdwZz0SJDc0NTI0NzNkLWE0ZjktNGY1NS1iZjdlLTEwZThlOGQyMjg1NhgAIAAoADDm++KJjzM4j4mHlIozQI+Jh5SKM0ocMUR0c1h5WXJCcU91ZlorZnNQQ0YvNlhvVkdnPVogIh7//nRsajZHSGxRWFFIK1I3c0VlYU1oTVVldEtHVT1l6i52+sI+AmAFEowBCAMShwEKHG5qZ0R1ODhlQ3J2WHA4NnBEN2ZIR2NxRnA4OD0SJGViMzQzNWFjLTg3NWQtNWE2YS05ZTQ4LWI0MTI0ZDE5NTA4NRgAIAAoADDk0+mRgjI41drpkYIyQNXa6ZGCMkoceXpOQjAxY241NEE3Y1JVMHVUKy9QZ21UdFVvPWUAAAAAwj4CYAASrQEIDhKoAQocNG80Z0lySGF5U1k0KzR2NGVEL20wN2JyOFRnPRIkZmQ1ZWY5MDEtNDNjNS00NWJkLTllZDItZDM3YjhmN2IyMDYzGAAgACgAMOXyrv+HMziCzNvy/TJAgszb8v0yShw3d0RBbnovK3d5SElEY2FyMGlsWklLNWluQWM9Wh8iHf1PSEFyKzNySEJTVmd0YXlDVFZNcFo3ejYzUGM9ZQPH+WHCPgJgBRKuAQgVEqkBChxpVko0TSt4VnlrbTRGMjNTc3NRbm1Ja3BtL0k9EiQwMmU5YjVlMi0zOTk1LTQ2YTItODQ0Zi1lMDgwNDU3YTZhYjcYACAAKAAw+6ay9IkzOP2nsvSJM0D9p7L0iTNKHFV3TnFSYkkwMWlCNk1xNitnVXk2WkZmNnNXRT1aICIe//pkeDAxS3A4ODZ4YlViWkxNQWFhU2xaR09rVWM9ZV0pEyTCPgJgBRKtAQgiEqgBChw0a01SS2tnZDM0M1N1L3NuazhTeEhiVmNYczA9EiRkY2Q5MjliYS1jYjFlLTRkYjgtYWZiZS03M2RjMmI2ZDNkNzMYACAAKAAwrq6xnKUzOImHsZylM0CJh7GcpTNKHHRYL2ZJVEwzVWZxdHRVWFlIUmdaVW1oajZvcz1aHyId/Ut4aDFRMC9pbWR4S1dBTXMxOE5XZVhSTnNpQT1lfTJ1w8I+AmAFEq4BCBMSqQEKHHZkT0xEZEtCc29yYUwzaS9hVDFTMUhhTHFhYz0SJGFiZjkzNzhlLTY2Y2YtNDY0Ni04NjQ0LTZmM2E5MjZiNzQxZBgAIAAoADDg7+egkzM48fK45IgzQPHyuOSIM0ocZWVtU3NMU1ZrU1dBcG82U2x2VHI1alMyeDFnPVogIh7/6kp1MFc5L3pIdEpNVXBXTkp4VW8zK29FMGpWST1lfvnKH8I+AmAFEq0BCBASqAEKHGFITEdaK3RuZGJoK294OE9VdHpqUEZsUm4xWT0SJDRkYTNmNDg0LTI2OTktNDkyMC05MWZiLWVlNzA2YzcyNWEzNhgAIAAoADDvmcKY/zI4+prCmP8yQPqawpj/MkocNmRKQmxpS0MwSWVoSFA2ZWdDSWtpNVlnN3ZNPVofIh3/VGlGSGdNQmlreGlMaDY1amtmU1A0b0lxcGZNPWWlQuolwj4CYAUSjAEIARKHAQoceXhKLzZmdmtlY3I3a3A1RVF6QjR0V0xwZGJFPRIkYWQ4MTMwMTctNDgwNC01NTUyLWE3NmQtMzU0OWExYjY2ZWEyGAAgACgAMN7T6ZGCMjjM2emRgjJAzNnpkYIyShxhUkNXTGdoRjliNUlucUtJRHZ1Si9qdlFrRmM9ZQAAAADCPgJgABKsAQgrEqcBChw3ekVwOEczUFZvSzRJclJ1amtFVWRhcWRrZkE9EiRjMWE5N2U4OC1hNzc5LTRkNjEtYTNmNi0zOTllNmU5ZjVmM2QYACAAKAAwiemq39AzOIbrqt/QM0CG66rf0DNKHHpvU0NQSEJiaTZlUVZWa29sVStMbnRmSmxTRT1aHiIcQ3ljZGJDdDFJVE13a29SY24xeWMvd3NSU0pNPWUAAAAAwj4CYAASrQEIDxKoAQocWE90OHk1VXdVdUpSbm1Ra1BpWHdmZkh6Ujd3PRIkYjA2ODVhMzAtOWE3NC00MDMyLThiMDMtNGY4MzJjOGQwOTQ0GAAgACgAMMSg5vL9MjjDoeby/TJAw6Hm8v0yShxaaHlPNXFxR1owdExRRVd2cE1Memh0L2pNYm89Wh8iHf42QWxiM3VGK04xYU5CVUd4OUxNc2llK21jc2c9ZbyZtpnCPgJgBRKtAQgMEqgBChwrK0dnY2hsUExOZERtM3lxS01pWTdwdXJOQ289EiRhNWU4YzQ5ZS03YzJiLTQ0YWEtYTUwYS1kOGQwMTE1NThjMDcYACAAKAAw5OrInoE0OISd6JndMkCEneiZ3TJKHHlHOG5xU3dReUhaYm9tZ2R4T0w5Q1JybVJsST1aHyId90lMUE5lQ2M0MVE4enUrMmtmZjFUclcvMndNTT1lXrdWj8I+AmAFEqwBCCoSpwEKHDhjQVdCRGRMckl4aVUwY2U0Y3NjbktlbkZYbz0SJDhkMTBkOTJkLWQyMjQtNDE2My1hNmEzLWQ2ZjBmYzc3ZTczNRgAIAAoADCfzYKTgzQ4ws6Ck4M0QMLOgpODNEocaEpkYmVqemFndHJOS0hIV1MzMXhwcjRWVU9VPVoeIhx5ZmR3RDFiNm9qOXJ4SDY0ZlE0OTBPcnBsSUE9ZRI+ghPCPgJgBRKsAQgHEqcBChxQNXFWTkRsMDJYbUtFR1Z2UGJoT3d4VStVWGs9EiRiZjk4NTM3MC1iNTkwLTRmNjAtOGRjOC0wMjUyMjgwNDUzMmMYACAAKAAwxeiZmpcyOMzqmZqXMkDM6pmalzJKHGpPQmxSYUxSUU1aVmVnczhITVJqelg0cnk5dz1aHiIcdzVibTk1eTB1c0FOY2VmT243b0RWZ1UyelJ3PWVDucIQwj4CYAUSrgEIFhKpAQocd1FGS3BzQ0VuMWdXckdlRFFWeWVzb0VSbE84PRIkYjI2YjM4M2YtOTU3MC00Y2FmLWI2YjktNGZhYTY1Yzg4NTRiGAAgACgAMKasz5OKMzi4rc+TijNAuK3Pk4ozShx6Y2JoNmI3WG9zL21QSUVhSXVLc1NRdzVVZzg9WiAiHv/9aGxXOG5mbzlJM24wQmprUmlRdldlWkdPdDBJPWXqLnb6wj4CYAUSrgEIERKpAQocK1BWVlkzK0hQcDVqbWcrbnZ5am1wcEsvbVprPRIkNDNjYzVhMTAtMzM3ZC00MjE0LTkyZDktM2YxOTA3YzhmYWU0GAAgACgAMOTPgL2AMzju0IC9gDNA7tCAvYAzShxrK2hoS0I1bG1KbC9ud2F0Uy9iU0RMM0ZRd1U9WiAiHv+qRzlrVjB4ODN5N21CSHRaUGJ6cEdVSWZaWkhzPWUwOrCDwj4CYAUSrQEICBKoAQocVUFlY01pTkhrMVE0bjZVTUZjWDRDUEZoSGgwPRIkMjAxZDliNmEtMzIxNS00NzAwLWJhMzYtZWY0NzQ4MTJlZDQ3GAAgACgAMNjSnYXDMjip1J2FwzJAqdSdhcMyShxzOWNKTWNrN3dXMUF4anFuVmlrZDVZOWVUQkU9Wh8iHZl2SXdMRjQ5NVFTdDFoSGJxajZKU3dLMlozQk09ZQAAAADCPgJgBRKsAQgnEqcBChxDOE53Y0pMTS96VGFDcGJoRWMwcS9vRktFRE09EiRhNTUwZjRjYi02YjRjLTQ1ZGItYWQwYy1mZjQwMDUzYmUxNjIYACAAKAAw0ZDVnZMzOLT/0p2TM0C0/9KdkzNKHHh5RnJ2UEcxcng4Zk12Q1k5ZW02K3JLc3JkWT1aHiIceXFQcGFMcy9ZME9vU3NzdmdWTEtENy8vOVMwPWUAAAAAwj4CYAUSrQEICxKoAQocYTFKS1QrYnkvSndmQXdkU0NHSWUwUW1BSy9RPRIkZWE4NjQxYjQtZjlkNy00Yjc0LWExOTItODU2M2I5YjE5YTg1GAAgACgAMOGAutrtMzifq8C80jJAn6vAvNIyShxPdmFZUnk3Yyt3MDlRbVkvUU9aMFN2cjRIc2c9Wh8iHe5NZjRHUExSeXRid2lkU09LcFJsWmhtbVYyTTA9ZV45AWHCPgJgBRKuAQgUEqkBChxoZEFSNnp0WTREdEJpdFFpcDZ6SkZid2NlcHM9EiQzYmU5YjBhYi0xMWNkLTRkNWQtYjIxMC1iN2MwYzNmMDM2ZTcYACAAKAAwquix9IkzOKzpsfSJM0Cs6bH0iTNKHE42a0NnNWh2UzRGWjBrSmd1V0YzQUw5cERxZz1aICIe//VtUVN1cDBPVEVYT0Z4WEJnaXpac0tPb3k4b2c9ZV0pEyTCPgJgBRKvAQgoEqoBChxVQ3g0dW5iYUdxYThkc3ErNnlVcmJRUU1vZjQ9EiQyMWQwNzdmMy1mZGZmLTRkNjMtODIzNy1hNjYyMTAwMmZkNzgYACAAKAAwnbSU7rgzOOS1lO64M0DktZTuuDNKHGpsZ3RlWlVNZDJyWHBvSDh4TG1Ydk9iS1hhYz1aISIf///uK2F3eSt3Wm9Nc2daOWZlUXFGek1ramZRQWZjPWUAAAAAwj4CYAASrQEIChKoAQocUzZJRndNZWZDclM2S2NETVRZdjVINzZSYmpRPRIkNzI2N2ZhNTEtOWEwYy00M2M2LTlhYjMtM2NmMmYwNmJmYjAyGAAgACgAMNO8q7jDMjjkvqu4wzJA5L6ruMMyShxIVkZWYjdnbnBsaGVHQU1DVUp5N1dtYXExdjg9Wh8iHd1uT0ZQbzlRcGNjU3ZKZXFabkE2WWxiTTZvL1E9ZQAAAADCPgJgBRKtAQgNEqgBChxyLys5OThMVUROSzZjRUFSZHdjdDhrNFBueHM9EiQyMGRkN2U1OC1mZTQ2LTRiMGYtOTc1NC04NTYxNWU5NTliNmMYACAAKAAwnv626ZQzOLmusJrdMkC5rrCa3TJKHEllRlBQelRGNlFYMzM4Y3VGR3VlWTBIa0xGND1aHyId+zJaWHpYMHRXV0RabHhZMERUVXprQUZYTnJZST1lobR9VcI+AmAFEqwBCCkSpwEKHFAwNkZDSlJUMzRaVWhrNHVuTEJIOGhVRFhyZz0SJDJjMzRmMDgxLTA5MmQtNGQwMC05ZmQxLTBlYzAxYjhjMzBlYRgAIAAoADCetJTuuDM4hK+S7rgzQISvku64M0ocTWs5YUFyVEpMT1JYNnVzeWduK04vT1BPTEIwPVoeIhxrOCtUQUxtVmdEU0JpYWhZd20zKytmM3htdXM9ZRkD6yXCPgJgBRKuAQgYEqkBChx1ZERIcThYeFpWVDZuOFFZK3RPaEcwS1NaZmc9EiRkMGIxMTA1Mi01NTUzLTRjNWItOTA0NC1iMjMzNDA2MGU0NDkYACAAKAAwq72xlIozOLS+sZSKM0C0vrGUijNKHG16dTZvSUtVOFVmTmFnUFlMVnBKZVNaTzgyVT1aICIe//9abUp0SFp3eThucGc5VnlYbVRYUlhSY2VQL1k9ZeoudvrCPgJgBRKtAQgJEqgBChxOemQ3d2FsKzBrejBHVTlFMWJLYUJ2KzZHY0k9EiRmNjM4OTE1MS0yMDU5LTQ1MDAtYmU3Yy1mZjhiZDIyN2IxMWMYACAAKAAwhsuSvYAzOMyfwJGmMkDMn8CRpjJKHFVnMC95akdxd2JlMkRZaWVzSjdWSVRFbzZydz1aHyIdu2U4YldkZ3kxY0lxc2tEWWttM3poVTJxOEEraz1l4bZmJsI+AmAFEowBCAIShwEKHFljU1RvbnZFU1B3cUNzNEwyY3JWaHY2OEw5OD0SJDE0ZGRmZDJhLTAxZDYtNWRhNS1hZmUzLTNhYmY4ODEyYTY1YxgAIAAoADDf0+mRgjI48tnpkYIyQPLZ6ZGCMkocb1BWa2h3QlJiVjY1S0NXUjIrSU9OSFdvT3U4PWUAAAAAwj4CYAAwADgA",
+   "version": 1
+}
