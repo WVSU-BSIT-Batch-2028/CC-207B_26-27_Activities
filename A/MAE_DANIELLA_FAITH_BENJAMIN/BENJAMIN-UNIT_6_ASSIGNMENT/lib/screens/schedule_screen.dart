@@ -19,16 +19,20 @@ class ScheduleScreen extends StatelessWidget {
       // TODO 13: Highlight the rows of orgs the student joined: give them a
       //   BoxDecoration with colorScheme.primaryContainer. Other rows get
       //   no decoration (null).
-      decoration: null,
+      decoration: joined
+          ? BoxDecoration(color: Theme.of(context).colorScheme.primaryContainer)
+          : null,
       children: [
         _cell(Text(slot.time)),
         _cell(Text(slot.booth)),
-        _cell(Row(
-          children: [
-            Expanded(child: Text(_orgName(slot.orgId))),
-            if (joined) const Icon(Icons.check_circle, size: 18),
-          ],
-        )),
+        _cell(
+          Row(
+            children: [
+              Expanded(child: Text(_orgName(slot.orgId))),
+              if (joined) const Icon(Icons.check_circle, size: 18),
+            ],
+          ),
+        ),
       ],
     );
   }

@@ -90,7 +90,7 @@ void main() {
     );
     await tapDestination(tester, 'My Orgs');
     expect(find.text('Shuttle Smashers'), findsOneWidget);
-    expect(find.text('Media committee ?? 3 h/week'), findsOneWidget);
+    expect(find.text('Media committee · 3 h/week'), findsOneWidget);
   });
 
   testWidgets('TODO 12 (needs 4 and 5): leaving an org asks first', (tester) async {

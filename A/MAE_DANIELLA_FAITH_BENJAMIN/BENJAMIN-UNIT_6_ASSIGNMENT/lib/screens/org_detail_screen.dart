@@ -33,22 +33,20 @@ class OrgDetailScreen extends StatelessWidget {
       // TODO 10: Add the Officers tab between About and Events: a Tab in
       //   the TabBar, _buildOfficers() in the TabBarView, and the right
       //   length.
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           title: Text(org.acronym),
           bottom: const TabBar(
             tabs: [
               Tab(icon: Icon(Icons.info_outline), text: 'About'),
+              Tab(icon: Icon(Icons.people_outline), text: 'Officers'),
               Tab(icon: Icon(Icons.event_outlined), text: 'Events'),
             ],
           ),
         ),
         body: TabBarView(
-          children: [
-            _buildAbout(context),
-            _buildEvents(),
-          ],
+          children: [_buildAbout(context), _buildOfficers(), _buildEvents()],
         ),
       ),
     );
@@ -98,7 +96,18 @@ class OrgDetailScreen extends StatelessWidget {
     // TODO 11: Show the officers with ListView.separated: a ListTile for
     //   each officer (name as title, role as subtitle, a CircleAvatar with
     //   the first letter of the name) and a Divider between them.
-    return Center(child: Text('${officers.length} officers'));
+    return ListView.separated(
+      itemCount: officers.length,
+      separatorBuilder: (_, _) => const Divider(height: 1),
+      itemBuilder: (context, index) {
+        final officer = officers[index];
+        return ListTile(
+          leading: CircleAvatar(child: Text(officer.name[0])),
+          title: Text(officer.name),
+          subtitle: Text(officer.role),
+        );
+      },
+    );
   }
 
   Widget _buildEvents() {
@@ -112,7 +121,7 @@ class OrgDetailScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.event),
             title: Text(event.title),
-            subtitle: Text('${event.when} ?? ${event.place}'),
+            subtitle: Text('${event.when} • ${event.place}'),
           ),
       ],
     );

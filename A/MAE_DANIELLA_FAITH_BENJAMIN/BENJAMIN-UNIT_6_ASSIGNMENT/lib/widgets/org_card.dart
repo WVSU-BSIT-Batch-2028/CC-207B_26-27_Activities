@@ -25,7 +25,7 @@ class OrgCard extends StatelessWidget {
       child: ListTile(
         leading: CircleAvatar(child: Text(org.acronym.characters.first)),
         title: Text(org.name),
-        subtitle: Text('${org.category.label} ?? ${org.members} members'),
+        subtitle: Text('${org.category.label} · ${org.members} members'),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [

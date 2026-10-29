@@ -72,6 +72,13 @@ class _OrgListScreenState extends State<OrgListScreen> {
   void _toggleCategory(OrgCategory category, bool selected) {
     // TODO 7: Add the category to _categories when it is selected, and
     //   remove it when it is not. Use setState.
+    setState(() {
+      if (selected) {
+        _categories.add(category);
+      } else {
+        _categories.remove(category);
+      }
+    });
   }
 
   void _hide(Org org) {
@@ -101,6 +108,7 @@ class _OrgListScreenState extends State<OrgListScreen> {
     if (registration != null) {
       // TODO 5: This screen no longer saves the registration itself.
       //   Wrap it in a Membership and pass it up with widget.onJoined.
+      widget.onJoined(Membership(org: org, registration: registration));
     }
   }
 
@@ -124,7 +132,10 @@ class _OrgListScreenState extends State<OrgListScreen> {
             // About screen? Try Experiment C4, then explain what you saw.
             // TODO 6: Close the drawer, then open the About screen by its
             //   route name (AboutScreen.routeName).
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, AboutScreen.routeName);
+            },
           ),
           ListTile(
             leading: const Icon(Icons.refresh),
@@ -208,13 +219,15 @@ class _OrgListScreenState extends State<OrgListScreen> {
     final q = _query.trim().toLowerCase();
     final visible = orgs
         .where((o) => !_hiddenIds.contains(o.id))
-        .where((o) =>
-            q.isEmpty ||
-            o.name.toLowerCase().contains(q) ||
-            o.acronym.toLowerCase().contains(q))
+        .where(
+          (o) =>
+              q.isEmpty ||
+              o.name.toLowerCase().contains(q) ||
+              o.acronym.toLowerCase().contains(q),
+        )
         // TODO 8: Keep only the orgs whose category is in _categories.
         //   When no chip is selected (_categories is empty), keep them all.
-        .where((o) => true)
+        .where((o) => _categories.isEmpty || _categories.contains(o.category))
         .toList();
 
     return Column(
@@ -265,11 +278,11 @@ class _OrgListScreenState extends State<OrgListScreen> {
                   text: 'No organizations match your search.',
                 )
               : _showGrid
-                  ? _buildGrid(visible)
-                  : ListView.builder(
-                      itemCount: visible.length,
-                      itemBuilder: (_, i) => _card(visible[i]),
-                    ),
+              ? _buildGrid(visible)
+              : ListView.builder(
+                  itemCount: visible.length,
+                  itemBuilder: (_, i) => _card(visible[i]),
+                ),
         ),
       ],
     );
@@ -285,8 +298,11 @@ class _OrgListScreenState extends State<OrgListScreen> {
       //   Use SliverGridDelegateWithMaxCrossAxisExtent with
       //   maxCrossAxisExtent: 200, spacing 8 both ways, and
       //   childAspectRatio: 0.9.
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 200,
+        crossAxisSpacing: 8,
+        mainAxisSpacing: 8,
+        childAspectRatio: 0.9,
       ),
       itemCount: visible.length,
       itemBuilder: (_, i) {

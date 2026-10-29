@@ -27,6 +27,7 @@ class _HomeShellState extends State<HomeShell> {
   void _join(Membership membership) {
     // TODO 4: Save the membership in _memberships, keyed by the org's id.
     //   Use setState so every tab rebuilds with the new map.
+    setState(() => _memberships[membership.org.id] = membership);
   }
 
   void _leave(Org org) {
@@ -56,11 +57,11 @@ class _HomeShellState extends State<HomeShell> {
       // and how? (Experiment C1 shows what happens without it.)
       // TODO 1: Show only pages[_index], but keep every page alive.
       //   Replace pages[_index] with an IndexedStack.
-      body: pages[_index],
+      body: IndexedStack(index: _index, children: pages),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _index,
         // TODO 2: Switch to the destination the user tapped.
-        onDestinationSelected: (i) {},
+        onDestinationSelected: (i) => setState(() => _index = i),
         destinations: [
           const NavigationDestination(
             icon: Icon(Icons.storefront_outlined),
@@ -70,8 +71,16 @@ class _HomeShellState extends State<HomeShell> {
           NavigationDestination(
             // TODO 3: Wrap both icons in a Badge that shows how many orgs
             //   the student joined (count). Hide the badge when count is 0.
-            icon: const Icon(Icons.badge_outlined),
-            selectedIcon: const Icon(Icons.badge),
+            icon: Badge(
+              label: Text('$count'),
+              isLabelVisible: count > 0,
+              child: const Icon(Icons.badge_outlined),
+            ),
+            selectedIcon: Badge(
+              label: Text('$count'),
+              isLabelVisible: count > 0,
+              child: const Icon(Icons.badge),
+            ),
             label: 'My Orgs',
           ),
           const NavigationDestination(
