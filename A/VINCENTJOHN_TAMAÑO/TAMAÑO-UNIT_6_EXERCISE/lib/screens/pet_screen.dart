@@ -13,7 +13,7 @@ class _PetScreenState extends State<PetScreen> {
   bool _isPlaying = false;
   int _playCount = 0;
   bool _showHeart = false;
-  final String _petName = 'Mallows/TABAllows';
+  final String _petName = 'Mallows';
 
   @override
   void initState() {
@@ -43,6 +43,34 @@ class _PetScreenState extends State<PetScreen> {
       if (mounted) {
         setState(() => _isPlaying = false);
       }
+    }
+  }
+
+  Future<void> _confirmReset() async {
+    final bool? shouldReset = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Reset the count?'),
+        content: Text(
+          '$_petName has meowed $_playCount ${_playCount == 1 ? "time" : "times"}. Start again from zero?',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel'),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Reset'),
+          ),
+        ],
+      ),
+    );
+
+    if (shouldReset == true && mounted) {
+      setState(() {
+        _playCount = 0;
+      });
     }
   }
 
@@ -135,6 +163,13 @@ class _PetScreenState extends State<PetScreen> {
                 color: theme.colorScheme.onSurface,
               ),
               textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 12.0),
+            // Part D: Reset button under counter, disabled while count is 0
+            OutlinedButton.icon(
+              onPressed: _playCount == 0 ? null : _confirmReset,
+              icon: const Icon(Icons.refresh),
+              label: const Text('Reset count'),
             ),
             const SizedBox(height: 16.0),
             SizedBox(
