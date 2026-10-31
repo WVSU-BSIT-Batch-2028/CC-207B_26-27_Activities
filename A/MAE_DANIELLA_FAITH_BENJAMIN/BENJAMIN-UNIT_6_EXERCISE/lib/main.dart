@@ -41,7 +41,7 @@ class _HomeShellState extends State<HomeShell> {
     return Scaffold(
       body: IndexedStack(
         index: selectedIndex,
-        children: const [ProfileScreen(), PetScreen()],
+        children: const [ProfileScreen(), PetScreen(), GalleryScreen()],
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: selectedIndex,
@@ -61,10 +61,165 @@ class _HomeShellState extends State<HomeShell> {
             selectedIcon: Icon(Icons.pets),
             label: 'My Pet',
           ),
+          NavigationDestination(
+            icon: Icon(Icons.photo_library_outlined),
+            selectedIcon: Icon(Icons.photo_library),
+            label: 'Gallery',
+          ),
         ],
       ),
     );
   }
+}
+
+class Photo {
+  final String asset;
+  final String caption;
+
+  const Photo({required this.asset, required this.caption});
+}
+
+const List<Photo> galleryPhotos = [
+  Photo(asset: 'assets/images/gallery/molo-church.jpg', caption: 'Molo Church'),
+  Photo(
+    asset: 'assets/images/gallery/talisay-campuestuhan.jpg',
+    caption: 'Campuestohan Highland Resort in Talisay',
+  ),
+  Photo(
+    asset: 'assets/images/gallery/don-salvador-forest.jpg',
+    caption: 'Forest in Don Salvador Benedicto',
+  ),
+  Photo(
+    asset: 'assets/images/gallery/iloilo-dinagyang.jpg',
+    caption: 'Dinagyang Festival fireworks in Iloilo',
+  ),
+  Photo(
+    asset: 'assets/images/gallery/antique-beach.jpg',
+    caption: 'Beach in Antique',
+  ),
+  Photo(
+    asset: 'assets/images/gallery/cict-building.jpg',
+    caption: 'College of Information and Communications Technology',
+  ),
+];
+
+class GalleryScreen extends StatefulWidget {
+  const GalleryScreen({super.key});
+
+  @override
+  State<GalleryScreen> createState() => _GalleryScreenState();
+}
+
+class _GalleryScreenState extends State<GalleryScreen> {
+  String? favoriteAsset;
+
+  Future<void> _open(Photo photo) async {
+    final bool? makeFavorite = await Navigator.push<bool>(
+      context,
+      MaterialPageRoute(builder: (_) => PhotoScreen(photo: photo)),
+    );
+
+    if (makeFavorite == true && mounted) {
+      setState(() {
+        favoriteAsset = photo.asset;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Gallery'), centerTitle: true),
+      body: GridView.extent(
+        maxCrossAxisExtent: 160,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 8,
+        padding: const EdgeInsets.all(8),
+        children: [
+          for (final photo in galleryPhotos)
+            GestureDetector(
+              onTap: () => _open(photo),
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      photo.asset,
+                      fit: BoxFit.cover,
+                      semanticLabel: photo.caption,
+                    ),
+                  ),
+                  if (photo.asset == favoriteAsset)
+                    Positioned(
+                      top: 8,
+                      right: 8,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: Colors.black54,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(4),
+                          child: Icon(Icons.star, color: Colors.amber),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class PhotoScreen extends StatelessWidget {
+  final Photo photo;
+
+  const PhotoScreen({super.key, required this.photo});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(photo.caption), centerTitle: true),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              Expanded(
+                child: Center(
+                  child: Image.asset(
+                    photo.asset,
+                    fit: BoxFit.contain,
+                    semanticLabel: photo.caption,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+              FilledButton(
+                onPressed: () => Navigator.pop(context, true),
+                child: const Text('Make favorite'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ClassSlot {
+  final String day;
+  final String time;
+  final String subject;
+
+  const ClassSlot({
+    required this.day,
+    required this.time,
+    required this.subject,
+  });
 }
 
 class ProfileInfo {
@@ -114,6 +269,92 @@ class InfoTile extends StatelessWidget {
 // Profile screen: StatelessWidget.
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
+
+  static const List<String> hobbies = [
+    'Sports',
+    'Traveling',
+    'Web development',
+    'Reading',
+    'Listening to music',
+  ];
+
+  static const List<ClassSlot> classSchedule = [
+    ClassSlot(
+      day: 'Mon',
+      time: '7:00–9:00 AM',
+      subject: 'CIT 213 - HCI 2 (ICT 106)',
+    ),
+    ClassSlot(
+      day: 'Mon',
+      time: '9:00 AM–12:00 PM',
+      subject: 'CIT 246 - IT Project Management (ICT 307)',
+    ),
+    ClassSlot(
+      day: 'Mon',
+      time: '1:00–3:00 PM',
+      subject: 'CIT 210 - Web Systems (ICT 307)',
+    ),
+    ClassSlot(
+      day: 'Mon',
+      time: '3:00–4:00 PM',
+      subject: 'CIT 212 - Networking 2 (ICT 207)',
+    ),
+    ClassSlot(
+      day: 'Mon',
+      time: '4:00–5:30 PM',
+      subject: 'CC 208 - Research (ICT 106)',
+    ),
+    ClassSlot(
+      day: 'Tue',
+      time: '9:00 AM–12:00 PM',
+      subject: 'CC 207B - App Development (ICT 307)',
+    ),
+    ClassSlot(
+      day: 'Tue',
+      time: '1:00–2:30 PM',
+      subject: 'BA 234 - Technopreneurship (ICT 107)',
+    ),
+    ClassSlot(
+      day: 'Tue',
+      time: '4:00–6:00 PM',
+      subject: 'CIT 212 - Networking 2 (ICT 305)',
+    ),
+    ClassSlot(
+      day: 'Wed',
+      time: '7:00–10:00 AM',
+      subject: 'CIT 213 - HCI 2 (ICT 306)',
+    ),
+    ClassSlot(
+      day: 'Wed',
+      time: '10:00 AM–12:00 PM',
+      subject: 'CIT 246 - IT Project Management (ICT 307)',
+    ),
+    ClassSlot(
+      day: 'Wed',
+      time: '1:00–4:00 PM',
+      subject: 'CIT 210 - Web Systems (ICT 307)',
+    ),
+    ClassSlot(
+      day: 'Wed',
+      time: '4:00–5:30 PM',
+      subject: 'CC 208 - Research (ICT 106)',
+    ),
+    ClassSlot(
+      day: 'Thu',
+      time: '10:00 AM–12:00 PM',
+      subject: 'CC 207B - App Development (ICT 307)',
+    ),
+    ClassSlot(
+      day: 'Thu',
+      time: '1:00–2:30 PM',
+      subject: 'BA 234 - Technopreneurship (ICT 107)',
+    ),
+    ClassSlot(
+      day: 'Thu',
+      time: '4:00–6:00 PM',
+      subject: 'CIT 212 - Networking 2 (ICT 305)',
+    ),
+  ];
 
   static const List<ProfileInfo> infos = [
     ProfileInfo(
@@ -215,6 +456,106 @@ class ProfileScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Text('My Hobbies', style: theme.textTheme.titleLarge),
+                        const SizedBox(height: 12),
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: [
+                            for (final hobby in hobbies)
+                              Chip(label: Text(hobby)),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'My Class Schedule',
+                          style: theme.textTheme.titleLarge,
+                        ),
+                        const SizedBox(height: 12),
+                        LayoutBuilder(
+                          builder: (context, constraints) {
+                            final tableWidth = constraints.maxWidth < 520
+                                ? 520.0
+                                : constraints.maxWidth;
+
+                            return SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: SizedBox(
+                                width: tableWidth,
+                                child: Table(
+                                  border: TableBorder.all(
+                                    color: theme.colorScheme.outlineVariant,
+                                  ),
+                                  columnWidths: const {
+                                    0: FixedColumnWidth(78),
+                                    1: FixedColumnWidth(112),
+                                    2: FlexColumnWidth(),
+                                  },
+                                  children: [
+                                    TableRow(
+                                      decoration: BoxDecoration(
+                                        color:
+                                            theme.colorScheme.primaryContainer,
+                                      ),
+                                      children: [
+                                        for (final heading in [
+                                          'Day',
+                                          'Time',
+                                          'Subject',
+                                        ])
+                                          Padding(
+                                            padding: const EdgeInsets.all(8),
+                                            child: Text(
+                                              heading,
+                                              style: theme.textTheme.bodyMedium
+                                                  ?.copyWith(
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                            ),
+                                          ),
+                                      ],
+                                    ),
+                                    for (final slot in classSchedule)
+                                      TableRow(
+                                        children: [
+                                          for (final value in [
+                                            slot.day,
+                                            slot.time,
+                                            slot.subject,
+                                          ])
+                                            Padding(
+                                              padding: const EdgeInsets.all(8),
+                                              child: Text(value),
+                                            ),
+                                        ],
+                                      ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                         Text('My Biography', style: theme.textTheme.titleLarge),
                         const SizedBox(height: 12),
                         Text(
@@ -297,6 +638,32 @@ class _PetScreenState extends State<PetScreen> {
     }
   }
 
+  Future<void> _confirmReset() async {
+    final bool? shouldReset = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Reset count?'),
+        content: const Text('Do you want to reset Ami’s sound count?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, true),
+            child: const Text('Reset'),
+          ),
+        ],
+      ),
+    );
+
+    if (shouldReset == true && mounted) {
+      setState(() {
+        playCount = 0;
+      });
+    }
+  }
+
   @override
   void dispose() {
     player.dispose();
@@ -375,6 +742,11 @@ class _PetScreenState extends State<PetScreen> {
                   'Ami has squeaked $playCount times.',
                   style: theme.textTheme.titleMedium,
                   textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                OutlinedButton(
+                  onPressed: playCount == 0 ? null : _confirmReset,
+                  child: const Text('Reset count'),
                 ),
               ],
             ),
