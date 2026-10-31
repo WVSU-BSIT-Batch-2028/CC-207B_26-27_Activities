@@ -21,7 +21,7 @@ class _JoinFormScreenState extends State<JoinFormScreen> {
   // Filled in by each field's onSaved when the form is saved.
   String _fullName = '';
   String _email = '';
-  String _studentId = '';
+  final String _studentId = '';
   int? _yearLevel;
 
   // Inputs outside the TextFormFields: the State owns their values and
