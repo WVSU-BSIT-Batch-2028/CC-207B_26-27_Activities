@@ -1,0 +1,6 @@
+00:00 +0: loading /private/tmp/org-fair-evidence-run/test/assignment_experiments_test.dart
+00:00 +0: E5 viewport experiment
+E5 OBSERVED: Vertical viewport was given unbounded height.
+00:00 +1: E11 validation timing experiment
+E11 OBSERVED: always shows required-field errors immediately.
+00:00 +2: All tests passed!

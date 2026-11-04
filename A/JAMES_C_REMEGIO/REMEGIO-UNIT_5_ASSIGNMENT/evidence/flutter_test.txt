@@ -1,0 +1,9 @@
+00:00 +0: loading /Users/jamesremegio/Desktop/assignment_org_fair_completed/test/org_fair_test.dart
+00:00 +0: loads the organization list
+00:00 +1: shows an empty state and refresh action
+00:00 +2: shows an error and retries the request
+00:00 +3: search filters organizations as the user types
+00:00 +4: long press toggles a favorite
+00:00 +5: swiping dismisses an organization from the list
+00:01 +6: valid registration returns to the list as joined
+00:01 +7: All tests passed!
