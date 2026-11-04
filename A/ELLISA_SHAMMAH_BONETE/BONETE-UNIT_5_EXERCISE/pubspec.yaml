@@ -1,0 +1,24 @@
+# Rename `lastname` to your actual surname after flutter create.
+name: bonete_unit5_exercise
+description: 'Unit 5 Flutter exercise: Profile and My Pet'
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  audioplayers: ^6.8.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/sounds/
