@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fair_events",
+  "info": {
+    "singularName": "fair-event",
+    "pluralName": "fair-events",
+    "displayName": "Fair Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "orgId": {
+      "type": "string"
+    },
+    "startsAt": {
+      "type": "datetime"
+    },
+    "venue": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cancelled": {
+      "type": "boolean"
+    }
+  }
+}
