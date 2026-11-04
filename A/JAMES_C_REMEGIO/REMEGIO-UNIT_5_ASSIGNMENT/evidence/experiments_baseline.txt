@@ -1,0 +1,6 @@
+00:00 +0: loading /private/tmp/org-fair-evidence-run/test/assignment_experiments_test.dart
+00:00 +0: E5 viewport experiment
+E5 OBSERVED: Expanded supplies a bounded viewport; no layout errors.
+00:00 +1: E11 validation timing experiment
+E11 OBSERVED: onUserInteraction starts without errors and validates after editing.
+00:00 +2: All tests passed!
