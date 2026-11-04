@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "picks",
+  "info": {
+    "singularName": "pick",
+    "pluralName": "picks",
+    "displayName": "Pick"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "enumeration",
+      "enum": [
+        "book",
+        "movie"
+      ]
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "note": {
+      "type": "text"
+    }
+  }
+}

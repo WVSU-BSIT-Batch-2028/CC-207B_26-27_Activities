@@ -513,6 +513,34 @@ export interface ApiFairEventFairEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPickPick extends Struct.CollectionTypeSchema {
+  collectionName: 'picks';
+  info: {
+    displayName: 'Pick';
+    pluralName: 'picks';
+    singularName: 'pick';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    externalId: Schema.Attribute.String;
+    kind: Schema.Attribute.Enumeration<['book', 'movie']>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::pick.pick'> &
+      Schema.Attribute.Private;
+    note: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1026,6 +1054,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::fair-event.fair-event': ApiFairEventFairEvent;
+      'api::pick.pick': ApiPickPick;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
