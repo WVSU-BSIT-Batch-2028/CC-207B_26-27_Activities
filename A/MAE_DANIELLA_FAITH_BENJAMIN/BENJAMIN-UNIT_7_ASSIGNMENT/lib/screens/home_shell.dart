@@ -46,6 +46,7 @@ class _HomeShellState extends State<HomeShell> {
       // TODO 11: Add the What's On page here, second in the list:
       // EventsScreen(repository: widget.events)
       // (Then add its destination below.)
+      EventsScreen(repository: widget.events),
       MyOrgsScreen(
         memberships: _memberships.values.toList(),
         onLeave: _leave,
@@ -69,6 +70,11 @@ class _HomeShellState extends State<HomeShell> {
           ),
           // TODO 11 (continued): a NavigationDestination with the label
           // "What's On" and the icons Icons.event_outlined / Icons.event.
+          const NavigationDestination(
+            icon: Icon(Icons.event_outlined),
+            selectedIcon: Icon(Icons.event),
+            label: "What's On",
+          ),
           NavigationDestination(
             icon: Badge(
               isLabelVisible: count > 0,

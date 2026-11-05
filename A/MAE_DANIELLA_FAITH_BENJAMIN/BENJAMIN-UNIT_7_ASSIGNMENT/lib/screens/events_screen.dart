@@ -31,6 +31,16 @@ class _EventsScreenState extends State<EventsScreen> {
     // block body: setState(() { ... });), then await it so the spinner
     // stays until the answer comes. Wrap the await in try/catch: if it
     // fails, the FutureBuilder already shows the error, so do nothing.
+    late Future<EventLoad> nextLoad;
+    setState(() {
+      nextLoad = widget.repository.load();
+      _future = nextLoad;
+    });
+    try {
+      await nextLoad;
+    } catch (_) {
+      return;
+    }
   }
 
   @override
@@ -77,7 +87,8 @@ class _EventsScreenState extends State<EventsScreen> {
   Widget _buildEvents(EventLoad load) {
     // TODO 7: The CMS may send the events in any order. Make a sorted copy,
     // earliest first: [...load.events]..sort((a, b) => ...compareTo...)
-    final events = load.events;
+    final events = [...load.events]
+      ..sort((a, b) => a.startsAt.compareTo(b.startsAt));
 
     // EXPLAIN E7: RefreshIndicator calls onRefresh and hides its spinner
     // when the Future it gets back completes. What would the user see if
@@ -92,6 +103,15 @@ class _EventsScreenState extends State<EventsScreen> {
           // top: content 'No connection. Showing the events saved earlier.'
           // and one action, a TextButton 'Retry' that calls _refresh.
           // (Use a collection-if inside this list.)
+          if (load.savedCopy)
+            MaterialBanner(
+              content: const Text(
+                'No connection. Showing the events saved earlier.',
+              ),
+              actions: [
+                TextButton(onPressed: _refresh, child: const Text('Retry')),
+              ],
+            ),
           if (events.isEmpty)
             const Padding(
               padding: EdgeInsets.only(top: 120),
