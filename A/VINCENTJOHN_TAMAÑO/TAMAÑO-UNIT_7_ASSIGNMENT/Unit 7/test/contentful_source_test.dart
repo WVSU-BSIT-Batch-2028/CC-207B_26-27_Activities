@@ -80,7 +80,7 @@ void main() {
     expect(sent.url.path, '/spaces/abc123/environments/master/entries');
     expect(sent.url.queryParameters['content_type'], 'fairEvent');
     expect(sent.url.queryParameters['order'], 'fields.startsAt');
-    expect(sent.headers['Authorization'], 'Bearer delivery-token');
+    expect(sent.headers['Authorization'], 'delivery-token');
   });
 
   test('TODO 3 (Contentful): the JSON becomes events', () async {

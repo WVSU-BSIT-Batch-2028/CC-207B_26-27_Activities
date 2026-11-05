@@ -142,7 +142,7 @@ class _OrgEventsTabState extends State<OrgEventsTab> {
     super.initState();
     // TODO 10: Load only this org's events from the CMS:
     // widget.repository.loadForOrg(...) with this tab's org id.
-    _future = Future.value(const EventLoad([]));
+    _future = widget.repository.loadForOrg(widget.orgId);
   }
 
   @override

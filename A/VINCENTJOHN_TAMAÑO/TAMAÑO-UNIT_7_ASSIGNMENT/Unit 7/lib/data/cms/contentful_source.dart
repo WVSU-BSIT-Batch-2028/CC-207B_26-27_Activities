@@ -43,8 +43,18 @@ class ContentfulEventSource implements EventSource {
     //   Query:   content_type=fairEvent, order=fields.startsAt, limit=100
     //            (Uri.https(host, path, {...}) builds it for you)
     //   Headers: 'Authorization': 'Bearer $token'
-    final uri = Uri.https('cdn.contentful.com');
-    final headers = <String, String>{};
+    final uri = Uri.https(
+      'cdn.contentful.com',
+      '/spaces/$spaceId/environments/$environment/entries',
+      {
+        'content_type': 'fairEvent',
+        'order': 'fields.startsAt',
+        'limit': '100',
+      },
+    );
+    final headers = <String, String>{
+      'Authorization': token,
+    };
     // EXPLAIN E3: Open one of the other two CMS files and compare. Which
     // lines differ, and which are the same? Why is the parsing the part
     // that changes most from one CMS to another?
@@ -54,6 +64,20 @@ class ContentfulEventSource implements EventSource {
     //   The list is in json['items']. The id is in item['sys']['id'];
     //   everything else is in item['fields'].
     //   Empty fields are missing: use ?? '' and ?? false.
-    return const [];
+    final items = (json as Map<String, dynamic>)['items'] as List<dynamic>? ?? const [];
+    return items.map((item) {
+      final itemMap = item as Map<String, dynamic>;
+      final sys = itemMap['sys'] as Map<String, dynamic>;
+      final fields = itemMap['fields'] as Map<String, dynamic>;
+      return FairEvent(
+        id: sys['id'] as String,
+        orgId: fields['orgId'] as String,
+        title: fields['title'] as String,
+        startsAt: DateTime.parse(fields['startsAt'] as String),
+        venue: fields['venue'] as String,
+        description: (fields['description'] as String?) ?? '',
+        cancelled: (fields['cancelled'] as bool?) ?? false,
+      );
+    }).toList();
   }
 }

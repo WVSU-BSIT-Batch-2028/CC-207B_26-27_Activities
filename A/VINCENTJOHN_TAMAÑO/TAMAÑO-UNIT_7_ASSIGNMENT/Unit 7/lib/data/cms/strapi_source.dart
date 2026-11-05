@@ -37,8 +37,17 @@ class StrapiEventSource implements EventSource {
     //   Query:   sort=startsAt:asc and pagination[pageSize]=100
     //            (use Uri.parse(...).replace(queryParameters: {...}))
     //   Headers: 'Authorization': 'Bearer $token', only when token is not empty
-    final uri = Uri.parse(baseUrl);
-    final headers = <String, String>{};
+    final uri = Uri.parse(
+      '$baseUrl/api/fair-events',
+    ).replace(
+      queryParameters: {
+        'sort': 'startsAt:asc',
+        'pagination[pageSize]': '100',
+      },
+    );
+    final headers = <String, String>{
+      if (token.isNotEmpty) 'Authorization': 'Bearer $token',
+    };
     // EXPLAIN E3: Open one of the other two CMS files and compare. Which
     // lines differ, and which are the same? Why is the parsing the part
     // that changes most from one CMS to another?
@@ -48,6 +57,18 @@ class StrapiEventSource implements EventSource {
     //   The list is in json['data']. For each item use documentId as the id.
     //   description can be null and cancelled can be null: use ?? '' and ?? false.
     //   startsAt is a String: DateTime.parse(...)
-    return const [];
+    final data = (json as Map<String, dynamic>)['data'] as List<dynamic>? ?? const [];
+    return data.map((item) {
+      final map = item as Map<String, dynamic>;
+      return FairEvent(
+        id: map['documentId'] as String,
+        orgId: map['orgId'] as String,
+        title: map['title'] as String,
+        startsAt: DateTime.parse(map['startsAt'] as String),
+        venue: map['venue'] as String,
+        description: (map['description'] as String?) ?? '',
+        cancelled: (map['cancelled'] as bool?) ?? false,
+      );
+    }).toList();
   }
 }
