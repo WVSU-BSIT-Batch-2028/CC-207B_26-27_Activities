@@ -4,6 +4,9 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'screens/gallery_screen.dart';
+import 'screens/shelf_screen.dart';
+
 void main() {
   runApp(const ProfilePetApp());
 }
@@ -33,13 +36,23 @@ class _HomeShellState extends State<HomeShell> {
 
   @override
   Widget build(BuildContext context) {
-    final titles = ['Christian Paul De la Cruz', 'My Pet'];
+    const titles = [
+      'Christian Paul De la Cruz',
+      'My Pet',
+      'Gallery',
+      'My Shelf',
+    ];
 
     return Scaffold(
       appBar: AppBar(title: Text(titles[_selectedIndex])),
       body: IndexedStack(
         index: _selectedIndex,
-        children: const [ProfileScreen(), PetScreen()],
+        children: const [
+          ProfileScreen(),
+          PetScreen(),
+          GalleryScreen(),
+          ShelfScreen(),
+        ],
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _selectedIndex,
@@ -56,6 +69,16 @@ class _HomeShellState extends State<HomeShell> {
             icon: Icon(Icons.pets_outlined),
             selectedIcon: Icon(Icons.pets),
             label: 'My Pet',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.photo_library_outlined),
+            selectedIcon: Icon(Icons.photo_library),
+            label: 'Gallery',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.collections_bookmark_outlined),
+            selectedIcon: Icon(Icons.collections_bookmark),
+            label: 'My Shelf',
           ),
         ],
       ),
