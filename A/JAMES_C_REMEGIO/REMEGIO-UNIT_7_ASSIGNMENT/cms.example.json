@@ -1,0 +1,5 @@
+{
+  "CMS": "contentful",
+  "CMS_SPACE": "your-space-id",
+  "CMS_TOKEN": "your-content-delivery-api-token"
+}
