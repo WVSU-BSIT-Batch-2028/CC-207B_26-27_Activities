@@ -195,7 +195,7 @@ class _BooksTabState extends State<BooksTab> {
                                   'https://covers.openlibrary.org/b/id/${book.coverId}-S.jpg',
                                   width: 40,
                                   fit: BoxFit.cover,
-                                  errorBuilder: (_, __, ___) => const Icon(Icons.book),
+                                  errorBuilder: (_, _, _) => const Icon(Icons.book),
                                 )
                               : const Icon(Icons.book),
                           title: Text(book.title),
@@ -301,7 +301,7 @@ class _MoviesTabState extends State<MoviesTab> {
                                   movie.poster!,
                                   width: 40,
                                   fit: BoxFit.cover,
-                                  errorBuilder: (_, __, ___) => const Icon(Icons.movie),
+                                  errorBuilder: (_, _, _) => const Icon(Icons.movie),
                                 )
                               : const Icon(Icons.movie),
                           title: Text(movie.title),

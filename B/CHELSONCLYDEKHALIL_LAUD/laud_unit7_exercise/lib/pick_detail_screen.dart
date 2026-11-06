@@ -82,7 +82,7 @@ class _PickDetailScreenState extends State<PickDetailScreen> {
                       imageUrl,
                       height: 260,
                       fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) => const Icon(Icons.broken_image, size: 100),
+                      errorBuilder: (_, _, _) => const Icon(Icons.broken_image, size: 100),
                     ),
                   )
                 else
