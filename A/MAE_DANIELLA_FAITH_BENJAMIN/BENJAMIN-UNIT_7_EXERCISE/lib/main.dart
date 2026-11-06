@@ -1,6 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
+import 'shelf/shelf_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -41,7 +43,12 @@ class _HomeShellState extends State<HomeShell> {
     return Scaffold(
       body: IndexedStack(
         index: selectedIndex,
-        children: const [ProfileScreen(), PetScreen(), GalleryScreen()],
+        children: const [
+          ProfileScreen(),
+          PetScreen(),
+          GalleryScreen(),
+          ShelfScreen(),
+        ],
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: selectedIndex,
@@ -65,6 +72,11 @@ class _HomeShellState extends State<HomeShell> {
             icon: Icon(Icons.photo_library_outlined),
             selectedIcon: Icon(Icons.photo_library),
             label: 'Gallery',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.auto_stories_outlined),
+            selectedIcon: Icon(Icons.auto_stories),
+            label: 'Shelf',
           ),
         ],
       ),
