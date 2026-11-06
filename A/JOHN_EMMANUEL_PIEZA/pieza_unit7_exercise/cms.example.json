@@ -1,0 +1,6 @@
+{
+  "OMDB_KEY": "your-omdb-api-key",
+  "CMS_SPACE": "your-contentful-space-id",
+  "CMS_TOKEN": "your-content-delivery-api-token",
+  "CMS_ENVIRONMENT": "master"
+}
