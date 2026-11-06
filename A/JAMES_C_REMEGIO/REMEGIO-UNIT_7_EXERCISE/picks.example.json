@@ -1,0 +1,42 @@
+{
+  "contentType": {
+    "name": "Pick",
+    "apiId": "pick",
+    "fields": [
+      {"id": "title", "name": "Title", "type": "Short text", "required": true},
+      {"id": "kind", "name": "Kind", "type": "Short text", "required": true, "values": ["book", "movie"]},
+      {"id": "externalId", "name": "External ID", "type": "Short text", "required": true},
+      {"id": "note", "name": "Note", "type": "Long text", "required": false}
+    ]
+  },
+  "entries": [
+    {
+      "title": "The Hobbit",
+      "kind": "book",
+      "externalId": "OL27482W",
+      "verifiedWith": "Open Library search and /works/OL27482W.json on 2026-11-07. Description is an object with value. Cover id 14627509. Search year 1937. Work first_publish_date is January 1938.",
+      "note": "Bilbo Baggins leaves a comfortable hobbit-hole and joins a company of dwarves seeking a dragon's hoard. The story is the most direct way into Tolkien's Middle-earth, with a quest, riddles, and a reluctant hero."
+    },
+    {
+      "title": "Noli Me Tangere",
+      "kind": "book",
+      "externalId": "OL1622789W",
+      "verifiedWith": "Open Library search and /works/OL1622789W.json on 2026-11-07. Description is a plain string about Crisostomo Ibarra, Maria Clara, and Padre Damaso. First positive cover id is 5738053. The covers list also contains -1, which the app skips.",
+      "note": "Jose Rizal's novel follows Crisostomo Ibarra as he returns home and comes up against Padre Damaso and the colonial government. It is a portrait of power, faith, and love in Spanish-era San Diego, and it sets up El Filibusterismo."
+    },
+    {
+      "title": "Interstellar",
+      "kind": "movie",
+      "externalId": "tt0816692",
+      "verifiedWith": "OMDb title lookup on 7 Nov 2026. Title Interstellar, year 2014, imdbID tt0816692, poster and short plot present.",
+      "note": "A crew leaves Earth to look for a habitable world while a father and daughter are separated by time and distance. The film is known for treating a black hole and a wormhole as part of the story rather than only as a backdrop."
+    },
+    {
+      "title": "Spirited Away",
+      "kind": "movie",
+      "externalId": "tt0245429",
+      "verifiedWith": "OMDb title lookup on 7 Nov 2026. Title Spirited Away, year 2003, imdbID tt0245429, poster and short plot present.",
+      "note": "Chihiro crosses into a spirit bathhouse and has to keep her name, find her parents, and make her own way out. It is one of Studio Ghibli's most complete animated films, with a world that keeps changing the rules."
+    }
+  ]
+}
