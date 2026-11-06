@@ -1,0 +1,8 @@
+E1: It lives in the Homeshell because it is the parent of the Screens so that it can pass the data down to all screens because screens can’t see each other’s data, so that if a data updates, all screens show that data. (Line 25)
+E2: It basically builds all pages at the same time but only shows what “index”, so it basically just hides them and not destroys them causing it to keep the search text when I switch tabs. (Line 60)
+E3: A drawer is a screen on top of the navbar, and when I open about, about will be placed on top of the open drawer and when I press back, I’d see the list with the drawer still open (Line 135-138)
+E4: Wrap as it moves the extra chips down a line if it doesn’t fit, row would only keep it on one line and would fly off the screen.(Line 262)
+E5: Flutter finds the number of columns by dividing the available width by (maxCrossAxisExtent plus spacing) and rounding up (Line 301)
+E6: The length of DefaultTabController, the number of tabs in the TabBar, and the number of children in the TabBarView. If they don’t match, Flutter shows an error that the controller length doesn’t match the number of tabs (Line 36, 40 and 48)
+E7: It’s bool? Because the answer for that dialogue could be null as the user can press outside the dialogue, it’s basically a safety net. It is tested with == true, so that the user can only leave by pressing the Leave button otherwise the user stays. (Line 29 and 46)
+E8: A table makes every row use the same column widths, so that the contents line up with each other perfectly and neatly. In a Column of Rows, each Row decides the size of its own cells, so the text would start at different positions depending on how long it is, and the columns wouldn’t line up. (Line  53)
