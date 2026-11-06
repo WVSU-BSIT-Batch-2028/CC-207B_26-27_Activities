@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'gallery_screen.dart';
 import 'pet_screen.dart';
 import 'profile_screen.dart';
+import 'shelf_screen.dart';
 
 class HomeShell extends StatefulWidget {
   const HomeShell({super.key});
@@ -13,16 +14,17 @@ class HomeShell extends StatefulWidget {
 class _HomeShellState extends State<HomeShell> {
   int _selectedIndex = 0;
 
+  // Part A.a: 4 pages in IndexedStack
   static const List<Widget> _screens = [
     ProfileScreen(),
     PetScreen(),
     GalleryScreen(),
+    ShelfScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Part A.a: IndexedStack keeps every tab alive so state survives tab switches
       body: IndexedStack(
         index: _selectedIndex,
         children: _screens,
@@ -45,11 +47,16 @@ class _HomeShellState extends State<HomeShell> {
             selectedIcon: Icon(Icons.pets),
             label: 'My Pet',
           ),
-          // Part A.b: Third NavigationDestination for Gallery with photo icon
           NavigationDestination(
             icon: Icon(Icons.photo_library_outlined),
             selectedIcon: Icon(Icons.photo_library),
             label: 'Gallery',
+          ),
+          // Part A.a: Fourth NavigationDestination, Shelf
+          NavigationDestination(
+            icon: Icon(Icons.shelves),
+            selectedIcon: Icon(Icons.shelves),
+            label: 'Shelf',
           ),
         ],
       ),

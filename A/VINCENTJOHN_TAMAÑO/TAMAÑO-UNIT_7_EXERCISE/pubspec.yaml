@@ -1,4 +1,4 @@
-name: tamano_unit6_exercise
+name: tamano_unit7_exercise
 description: "A new Flutter project."
 publish_to: 'none'
 
@@ -13,6 +13,7 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   audioplayers: ^6.1.0
+  http: ^1.6.0
 
 dev_dependencies:
   flutter_test:
