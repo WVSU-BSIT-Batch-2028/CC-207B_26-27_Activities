@@ -16,8 +16,8 @@ For 360: (360 + 8) / 208 = 1.76 = 1 column, each tile is 200 pixels maximum wide
 
 For 1000: (1000 + 8) / 208 = 4.84 = 4 columns, each tile is 200 pixels maximum wide.
 
-E6: `(lib/screens/org_detail_screen.dart lines 32–52)` The number of tabs, pages, and controller length must match. Flutter will show an error because it cannot find the matching page for each tab.
+E6: We don't use `widget.repository.load()` inside `build()` because it can run many times whenever the screen updates. It would cause the app to send multiple requests to the CMS even when the user isn't refreshing. Using the request in `_refresh` and `initState` makes sure the app only loads events when the screen opens or when the user refreshes.
 
-E7: `(lib/screens/my_orgs_screen.dart lines 29 and 46)` howDialog returns true, false, or null. Cancelling returns false, Leaving returns true, and dismissing the dialog returns null. We test confirmed == true so the org is removed only when the user presses Leave.
+E7: The user would see the refresh spinner disappear, which would lead them to think that the data has already updated even though the app is still waiting for a response.
 
 E8: `(lib/screens/schedule_screen.dart lines 53–59)` Table is used instead of rows because they all share the same column widths. If each Row sized itself, the widths would be different because they would depend on the text length, causing misaligned columns.
