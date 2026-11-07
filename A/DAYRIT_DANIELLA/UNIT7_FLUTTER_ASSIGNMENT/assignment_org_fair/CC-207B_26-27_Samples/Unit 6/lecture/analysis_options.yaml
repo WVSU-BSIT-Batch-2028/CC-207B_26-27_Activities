@@ -1,0 +1,12 @@
+analyzer:
+  exclude:
+    - build/**
+    - web/**
+    - linux/**
+    - android/**
+    - ios/**
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    file_names: false # numbered files keep the lesson order
