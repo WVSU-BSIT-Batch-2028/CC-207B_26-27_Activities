@@ -10,7 +10,7 @@ E3: Your answer is correct and already easy to understand. Just add a period at 
 
 E4: Error 401 would be for the user because it is an authentication problem, usually caused by a user not being able to log in. Error 404 would be for the developer because it is a missing URL, which means the developer must check if the content type name or API URL is correct. Error 500 would be for the CMS admin because it is an error with the server itself.
 
-E5: `(lib/screens/org_list_screen.dart lines 297–302)`The formula is columns = floor((width + 8) / (200 + 8)). The 8 is added because of the spacing between columns, and we round down to count the complete tiles that fit.
+E5: It is a feature. If the app is still open when we lose connection, it can show previously loaded events. If the user closes and reopens the app without internet, the saved events are gone since they're only stored in memory. The app will not be able to fetch new events without Wi-Fi or an internet connection.
 
 For 360: (360 + 8) / 208 = 1.76 = 1 column, each tile is 200 pixels maximum wide.
 
