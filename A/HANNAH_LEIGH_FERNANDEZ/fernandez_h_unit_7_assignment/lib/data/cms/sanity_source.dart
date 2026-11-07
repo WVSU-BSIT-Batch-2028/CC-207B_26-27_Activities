@@ -22,7 +22,8 @@ class SanityEventSource implements EventSource {
   SanityEventSource(
     this.client, {
     required this.projectId,
-    this.dataset = 'event-information',
+    this.dataset =
+        'event-information', // edited the default dataset name to match the one in the Studio
     this.token = '',
   });
 
@@ -49,16 +50,40 @@ class SanityEventSource implements EventSource {
     //   Query:   query=<the GROQ query above>
     //            (Uri.https(host, path, {'query': query}) encodes it for you)
     //   Headers: 'Authorization': 'Bearer $token', only when token is not empty
-    final uri = Uri.https('$projectId.apicdn.sanity.io');
+
+    final host = '$projectId.apicdn.sanity.io';
+    final path = '/v2025-02-19/data/query/$dataset';
+
+    final uri = Uri.https(host, path, {'query': query});
+
     final headers = <String, String>{};
+
+    if (token.isNotEmpty) {
+      headers['Authorization'] = 'Bearer $token';
+    }
     // EXPLAIN E3: Open one of the other two CMS files and compare. Which
     // lines differ, and which are the same? Why is the parsing the part
     // that changes most from one CMS to another?
-    final json = await getJson(client, uri, cms: name, headers: headers);
+    final json =
+        await getJson(client, uri, cms: name, headers: headers)
+            as Map<String, dynamic>;
 
     // TODO 3 (Sanity): Turn the JSON into a List<FairEvent>.
     //   The list is in json['result']. Use _id as the id.
     //   description and cancelled can be null: use ?? '' and ?? false.
-    return const [];
+    final events = json['result'] as List<dynamic>;
+
+    return events.map((event) {
+      final map = event as Map<String, dynamic>;
+      return FairEvent(
+        id: map['_id'] as String,
+        orgId: map['orgId'] as String,
+        title: map['title'] as String,
+        startsAt: DateTime.parse(map['startsAt'] as String),
+        venue: map['venue'] as String,
+        description: map['description'] as String? ?? '',
+        cancelled: map['cancelled'] as bool? ?? false,
+      );
+    }).toList();
   }
 }

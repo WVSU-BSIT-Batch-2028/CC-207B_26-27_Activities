@@ -4,9 +4,9 @@
 
 E1: To move the app from one CMS to another, the only changes would be the CMS source file, API URL, authentication token, and the code that converts the CMS data into the app's FairEvent model. The screens and interface would mostly stay the same.
 
-E2:`(lib/screens/home_shell.dart; line 62)` IndexedStack keeps the page alive if you switch because the state doesn't get disposed of when you switch tabs, which keeps the state of texts and other screens from being lost. Experiment C1 shows that using only pages[_index] would clear the search because the previous screen gets removed, so its state is lost.
+E2: CMS\_TOKEN is not a secret because users can inspect the app and find the token once the app is accessed. Public read-only tokens are safe to put there, while private tokens, admin tokens, or tokens that can edit or delete content should never be included.
 
-E3: `(lib/screens/org_list_screen.dart lines 131–134)` Navigator.pop  closes the drawer before opening the About page. In Experiment C4, the drawer wont close, which interferes with the experience and navigation of the app.
+E3: Your answer is correct and already easy to understand. Just add a period at the end. When comparing the Strapi and Sanity files, the main difference is how they return their data. They have the same process of building the URL and headers, calling `getJson`, and converting the CMS data into a `List<FairEvent>`. Parsing changes the most because each CMS has a different way of storing and returning data.
 
 E4: Error 401 would be for the user because it is an authentication problem, usually caused by a user not being able to log in. Error 404 would be for the developer because it is a missing URL, which means the developer must check if the content type name or API URL is correct. Error 500 would be for the CMS admin because it is an error with the server itself.
 
