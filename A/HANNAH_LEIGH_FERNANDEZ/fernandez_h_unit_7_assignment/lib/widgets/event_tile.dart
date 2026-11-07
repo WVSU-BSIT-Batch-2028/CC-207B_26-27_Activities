@@ -51,10 +51,21 @@ class EventTile extends StatelessWidget {
     // Normal events keep the code below. (Hint: build the three parts with
     // conditional expressions: event.cancelled ? ... : ...)
     return ListTile(
-      leading: Icon(Icons.event, color: colors.primary),
-      title: Text(event.title),
+      leading: Icon(
+        event.cancelled ? Icons.event_busy : Icons.event,
+        color: event.cancelled ? colors.error : colors.primary,
+      ),
+      title: Text(
+        event.title,
+        style: TextStyle(
+          decoration: event.cancelled
+              ? TextDecoration.lineThrough
+              : TextDecoration.none,
+        ),
+      ),
       subtitle: Text('${formatWhen(event.startsAt)}\n$where'),
       isThreeLine: true,
+      trailing: event.cancelled ? const Chip(label: Text('Cancelled')) : null,
     );
   }
 }

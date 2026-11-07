@@ -20,4 +20,4 @@ E6: We don't use `widget.repository.load()` inside `build()` because it can run 
 
 E7: The user would see the refresh spinner disappear, which would lead them to think that the data has already updated even though the app is still waiting for a response.
 
-E8: `(lib/screens/schedule_screen.dart lines 53–59)` Table is used instead of rows because they all share the same column widths. If each Row sized itself, the widths would be different because they would depend on the text length, causing misaligned columns.
+E8: The Z means Zulu time, which is also known as Coordinated Universal Time (UTC). We call `toLocal()` to convert the time to the user's local time zone. Without calling it, a student in Iloilo would see the UTC time instead of the Philippine time.
