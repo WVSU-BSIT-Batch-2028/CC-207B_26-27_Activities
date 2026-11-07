@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A pastel digital portfolio book for a Bachelor of Science in Information Technology student." />
+  <title>Portfolio Book | Daniella Dayrit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Go to the top of the portfolio">your<span>portfolio</span>.</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="cloud cloud-one" aria-hidden="true"></div>
+      <div class="cloud cloud-two" aria-hidden="true"></div>
+      <div class="cloud cloud-three" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">a digital portfolio by <strong>Dani</strong></p>
+        <h1 id="hero-title">Portfolio<br /><span>Book</span></h1>
+        <p class="hero-note">A small collection of things I am learning, making, and dreaming about.</p>
+      </div>
+      <div class="floating-tags" aria-label="Areas of interest">
+        <span class="float-tag tag-pink">Web design</span>
+        <span class="float-tag tag-green">Graphic design</span>
+        <span class="float-tag tag-lavender">Illustrations</span>
+        <span class="float-tag tag-yellow">Personal projects</span>
+        <span class="float-tag tag-blue">UI / UX design</span>
+      </div>
+      <span class="sun-doodle" aria-hidden="true">✦</span>
+    </section>
+
+    <section id="about" class="intro container" aria-labelledby="about-title">
+      <div class="intro-copy">
+        <p class="section-kicker">01 / a little introduction</p>
+        <h2 id="about-title">Hello<span>!</span></h2>
+        <p class="lead">I’m <strong>Daniella Dayrit</strong>, an Information Technology student who enjoys turning simple ideas into thoughtful digital experiences.</p>
+        <p>I’m currently studying <strong>Bachelor of Science in Information Technology</strong> at <strong>West Visayas State University</strong>. I like exploring the meeting point between technology, design, and everyday life.</p>
+        <div class="details" aria-label="Personal details">
+          <span><b>Course</b> BS Information Technology</span>
+          <span><b>Based in</b> Iloilo City, Philippines</span>
+        </div>
+      </div>
+      <div class="profile-card">
+        <div class="photo-frame">
+          <img src="profile.jpeg" alt="Portrait of Daniella Dayrit" onerror="this.hidden=true; this.nextElementSibling.hidden=false;" />
+          <div class="photo-placeholder" hidden aria-hidden="true"><span>[YN]</span><small>Add your photo here</small></div>
+        </div>
+        <div class="profile-caption">
+            <div><strong>Daniella Dayrit</strong><span>student + creative learner</span></div>
+          <span class="sticker">hello<br />there!</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills-section container" aria-labelledby="skills-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">02 / things I enjoy</p>
+          <h2 id="skills-title">Skills &amp; interests</h2>
+        </div>
+        <p class="section-intro">Always learning something new,<br />one small project at a time.</p>
+      </div>
+      <div class="skill-cloud" aria-label="Skills and interests">
+        <span class="skill skill-blue">HTML</span><span class="skill skill-pink">CSS</span><span class="skill skill-yellow">JavaScript</span>
+        <span class="skill skill-lavender">Java</span><span class="skill skill-green">MySQL</span><span class="skill skill-orange">Web design</span>
+        <span class="skill skill-pink">UI / UX design</span><span class="skill skill-blue">Graphic design</span><span class="skill skill-yellow">Creativity</span>
+        <span class="skill skill-green">Creative thinking</span><span class="skill skill-lavender">Problem solving</span><span class="skill skill-orange">Singing</span>
+        <span class="skill skill-pink">Dancing</span><span class="skill skill-blue">Music</span><span class="skill skill-green">Exploring new things</span>
+      </div>
+    </section>
+
+    <section class="note-section container" aria-labelledby="note-title">
+      <div class="note-card">
+        <span class="note-star" aria-hidden="true">✳</span>
+        <p class="section-kicker">03 / a note about me</p>
+        <h2 id="note-title">Curious by nature,<br /><em>creative by choice.</em></h2>
+        <p>I’m building my foundation in technology while keeping space for creativity. My goal is to create websites that feel welcoming, useful, and a little bit joyful.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact container" aria-labelledby="contact-title">
+      <div>
+        <p class="section-kicker">04 / let’s connect</p>
+        <h2 id="contact-title">Say hello<span>!</span></h2>
+      </div>
+      <div class="contact-actions">
+        <a class="contact-button button-pink" href="https://github.com/your-username" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a class="contact-button button-blue" href="https://www.linkedin.com/in/your-username/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a class="contact-button button-yellow" href="mailto:your.email@example.com">Email me <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <span>made with curiosity ✦</span><span>© <span id="year"></span> Daniella Dayrit</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
