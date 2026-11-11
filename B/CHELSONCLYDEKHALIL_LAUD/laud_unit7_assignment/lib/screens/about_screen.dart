@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 /// Opened by name from the drawer: Navigator.pushNamed(context, '/about').
 class AboutScreen extends StatelessWidget {
@@ -73,8 +74,32 @@ class AboutScreen extends StatelessWidget {
               'right from this app.',
             ),
           ),
+          const Divider(),
+          const VersionTile(),
         ],
       ),
+    );
+  }
+}
+
+/// TODO A2
+class VersionTile extends StatelessWidget {
+  const VersionTile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<PackageInfo>(
+      future: PackageInfo.fromPlatform(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const SizedBox.shrink();
+        }
+        final info = snapshot.data!;
+        return ListTile(
+          leading: const Icon(Icons.verified_outlined),
+          title: Text('Version ${info.version} (build ${info.buildNumber})'),
+        );
+      },
     );
   }
 }
