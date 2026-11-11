@@ -1,9 +1,11 @@
-name: Flutter CI
+# Continuous integration: every pull request and every push to main is
+# checked. A red X on the pull request means do not merge yet.
+name: CI
 
 on:
-  push:
   pull_request:
-    branches: [ main ]
+  push:
+    branches: [main]
 
 jobs:
   test:
@@ -13,11 +15,11 @@ jobs:
         working-directory: B/CHELSONCLYDEKHALIL_LAUD/laud_unit7_assignment
     steps:
       - uses: actions/checkout@v4
-
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
-
+          cache: true
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
+      - run: flutter build web
