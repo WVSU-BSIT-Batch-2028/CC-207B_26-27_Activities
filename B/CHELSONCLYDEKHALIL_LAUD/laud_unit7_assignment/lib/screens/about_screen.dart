@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-/// Opened by name from the drawer: Navigator.pushNamed(context, '/about').
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
@@ -16,8 +15,6 @@ class AboutScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          // Stack layers children on top of each other. Positioned pins the
-          // title to the bottom-left corner of the banner.
           SizedBox(
             height: 160,
             child: Stack(
@@ -75,11 +72,27 @@ class AboutScreen extends StatelessWidget {
             ),
           ),
           const Divider(),
+<<<<<<< HEAD
           const VersionTile(),
+=======
+          FutureBuilder<PackageInfo>(
+            future: PackageInfo.fromPlatform(),
+            builder: (context, snapshot) {
+              final version = snapshot.hasData
+                  ? 'Version ${snapshot.data!.version} (build ${snapshot.data!.buildNumber})'
+                  : 'Loading version...';
+              return ListTile(
+                leading: const Icon(Icons.verified_outlined),
+                title: Text(version),
+              );
+            },
+          ),
+>>>>>>> bc2879f (Updated files for Unit 8-A)
         ],
       ),
     );
   }
+<<<<<<< HEAD
 }
 
 /// TODO A2
@@ -102,4 +115,6 @@ class VersionTile extends StatelessWidget {
       },
     );
   }
+=======
+>>>>>>> bc2879f (Updated files for Unit 8-A)
 }

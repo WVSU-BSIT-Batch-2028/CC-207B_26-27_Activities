@@ -1,11 +1,20 @@
 {
+<<<<<<< HEAD
     "name": "CICT Org Fair 2026",
     "short_name": "Org Fair",
+=======
+    "name": "CICT Org Fair",
+    "short_name": "CICT Org Fair",
+>>>>>>> bc2879f (Updated files for Unit 8-A)
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
+<<<<<<< HEAD
     "description": "CICT Org Fair 2026 Application",
+=======
+    "description": "CICT Org Fair Application",
+>>>>>>> bc2879f (Updated files for Unit 8-A)
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
