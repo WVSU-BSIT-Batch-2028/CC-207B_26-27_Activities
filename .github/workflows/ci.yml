@@ -17,7 +17,11 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
-
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
