@@ -1,3 +1,5 @@
+Web URL: https://si-chelson.github.io/CC-207B_26-27_Activities/
+
 # E1: The screens only know this interface. They never import strapi_source.dart or contentful_source.dart. What would you have to change to move the app from one CMS to another, and what would stay the same?
 We only need to change cms.json and make a single new source file for that new database. Which means we do not need to modify or rewrite our app screens and widgets because they interact with the EventSource interface instead rather than the CMS implemented directly.
 

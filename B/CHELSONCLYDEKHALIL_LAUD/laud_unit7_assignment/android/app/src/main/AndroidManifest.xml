@@ -1,10 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-<<<<<<< HEAD
-    <uses-permission android:name="android.permission.INTERNET"/>
-
-=======
 <uses-permission android:name="android.permission.INTERNET"/>
->>>>>>> bc2879f (Updated files for Unit 8-A)
     <application
         android:label="CICT Org Fair"
         android:name="${applicationName}"
