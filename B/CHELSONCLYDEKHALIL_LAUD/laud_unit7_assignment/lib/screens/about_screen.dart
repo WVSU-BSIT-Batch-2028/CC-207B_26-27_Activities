@@ -72,9 +72,6 @@ class AboutScreen extends StatelessWidget {
             ),
           ),
           const Divider(),
-<<<<<<< HEAD
-          const VersionTile(),
-=======
           FutureBuilder<PackageInfo>(
             future: PackageInfo.fromPlatform(),
             builder: (context, snapshot) {
@@ -87,34 +84,8 @@ class AboutScreen extends StatelessWidget {
               );
             },
           ),
->>>>>>> bc2879f (Updated files for Unit 8-A)
         ],
       ),
     );
   }
-<<<<<<< HEAD
-}
-
-/// TODO A2
-class VersionTile extends StatelessWidget {
-  const VersionTile({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<PackageInfo>(
-      future: PackageInfo.fromPlatform(),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          return const SizedBox.shrink();
-        }
-        final info = snapshot.data!;
-        return ListTile(
-          leading: const Icon(Icons.verified_outlined),
-          title: Text('Version ${info.version} (build ${info.buildNumber})'),
-        );
-      },
-    );
-  }
-=======
->>>>>>> bc2879f (Updated files for Unit 8-A)
 }
