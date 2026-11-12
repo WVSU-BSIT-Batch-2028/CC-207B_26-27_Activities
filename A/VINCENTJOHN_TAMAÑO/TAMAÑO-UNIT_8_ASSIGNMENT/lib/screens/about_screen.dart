@@ -104,7 +104,9 @@ class _VersionTileState extends State<VersionTile> {
         // TODO A2: When info is not null, show
         //   'Version ${info.version} (build ${info.buildNumber})'
         // instead of 'Version ...'.
-        const text = 'Version ...';
+        final text = info != null
+            ? 'Version ${info.version} (build ${info.buildNumber})'
+            : 'Version ...';
         return ListTile(
           leading: const Icon(Icons.verified_outlined),
           title: Text(text),
