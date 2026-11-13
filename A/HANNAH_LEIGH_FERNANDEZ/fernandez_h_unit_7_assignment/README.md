@@ -12,10 +12,6 @@ E4: Error 401 would be for the user because it is an authentication problem, usu
 
 E5: It is a feature. If the app is still open when we lose connection, it can show previously loaded events. If the user closes and reopens the app without internet, the saved events are gone since they're only stored in memory. The app will not be able to fetch new events without Wi-Fi or an internet connection.
 
-For 360: (360 + 8) / 208 = 1.76 = 1 column, each tile is 200 pixels maximum wide.
-
-For 1000: (1000 + 8) / 208 = 4.84 = 4 columns, each tile is 200 pixels maximum wide.
-
 E6: We don't use `widget.repository.load()` inside `build()` because it can run many times whenever the screen updates. It would cause the app to send multiple requests to the CMS even when the user isn't refreshing. Using the request in `_refresh` and `initState` makes sure the app only loads events when the screen opens or when the user refreshes.
 
 E7: The user would see the refresh spinner disappear, which would lead them to think that the data has already updated even though the app is still waiting for a response.
