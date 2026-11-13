@@ -1,0 +1,60 @@
+name: Deploy to GitHub Pages
+
+# C1: runs on every push to main and can be triggered manually
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Test
+        run: flutter test
+
+      # C2: build with --base-href and pass CMS values from repo vars/secrets
+      - name: Build web
+        env:
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+          CMS_URL: ${{ vars.CMS_URL }}
+          CMS_TOKEN: ${{ secrets.CMS_TOKEN }}
+        run: |
+          flutter build web --release \
+            --base-href "/${{ github.event.repository.name }}/" \
+            --dart-define=OMDB_KEY="$(printf '%s' "$OMDB_KEY" | tr -d '\r\n')" \
+            --dart-define=CMS_URL="$(printf '%s' "$CMS_URL" | tr -d '\r\n')" \
+            --dart-define=CMS_TOKEN="$(printf '%s' "$CMS_TOKEN" | tr -d '\r\n')"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
