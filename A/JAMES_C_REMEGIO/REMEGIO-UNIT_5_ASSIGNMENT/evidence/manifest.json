@@ -1,0 +1,102 @@
+[
+  {
+    "file": "screenshots/01_loading.png",
+    "title": "Loading organizations",
+    "description": "The loading indicator appears while a repository request is pending. TODOs 1-2."
+  },
+  {
+    "file": "screenshots/02_organization_list.png",
+    "title": "Organization list",
+    "description": "A successful request displays all eight organizations in the phone-width layout. TODO 1."
+  },
+  {
+    "file": "screenshots/03_error_retry.png",
+    "title": "Error feedback",
+    "description": "Server: error displays a helpful connection message and the Try again action. TODO 4."
+  },
+  {
+    "file": "screenshots/04_retry_loading.png",
+    "title": "Retry starts another request",
+    "description": "Pressing Try again returns the screen to loading. With error mode unchanged, it returns to the error state. TODO 2; E3."
+  },
+  {
+    "file": "screenshots/05_empty_refresh.png",
+    "title": "Empty repository result",
+    "description": "Server: empty displays the empty-state message and Refresh action. TODO 5."
+  },
+  {
+    "file": "screenshots/06_search_match.png",
+    "title": "Search filters the list",
+    "description": "Typing robotics leaves CICT Robotics Club as the only matching organization. TODO 6; E4."
+  },
+  {
+    "file": "screenshots/07_search_no_results.png",
+    "title": "Search with no matches",
+    "description": "An unmatched query displays a distinct no-results message. TODO 6."
+  },
+  {
+    "file": "screenshots/08_favorite.png",
+    "title": "Long-press favorite",
+    "description": "Long-pressing CICT Robotics Club fills its star. The parent screen stores the favorite state. TODO 3; E6."
+  },
+  {
+    "file": "screenshots/09_swipe_hide_undo.png",
+    "title": "Swipe to hide",
+    "description": "Swiping Computer Science Circle removes its card and displays CSC hidden with UNDO. TODO 7."
+  },
+  {
+    "file": "screenshots/10_undo_restored.png",
+    "title": "Undo restores the card",
+    "description": "Pressing UNDO restores Computer Science Circle; the Robotics favorite remains selected. TODO 7."
+  },
+  {
+    "file": "screenshots/11_org_detail.png",
+    "title": "Details and missing banner",
+    "description": "Opening Robotics shows its description, member count, Join button, and placeholder for its null banner URL. E8."
+  },
+  {
+    "file": "screenshots/12_form_initial_disabled.png",
+    "title": "Initial form state",
+    "description": "The untouched form has no validation errors. Submit is disabled while the agreement is unchecked. TODO 14; E11."
+  },
+  {
+    "file": "screenshots/13_form_validation.png",
+    "title": "Validation and digits only",
+    "description": "Invalid submission shows name, school-email, ID-length and year-level errors. Typing 12ab3 leaves only 123. TODOs 9, 11-12."
+  },
+  {
+    "file": "screenshots/14_form_reset.png",
+    "title": "Reset clears the form",
+    "description": "Reset clears values and validation errors and restores Events, 3 hours, updates on, and an unchecked agreement."
+  },
+  {
+    "file": "screenshots/15_form_valid_enabled.png",
+    "title": "Valid form and changed inputs",
+    "description": "Demo data is entered; Year 2, Media, 7 hours and updates off are selected. Checking the agreement enables Submit. TODOs 11-14."
+  },
+  {
+    "file": "screenshots/16_registration_success.png",
+    "title": "Registration returned to list",
+    "description": "Submitting valid data returns to the list, displays Welcome to CRC, James Remegio! and marks Robotics as Joined. TODOs 9-10; E7, E9."
+  },
+  {
+    "file": "screenshots/17_already_member_disabled.png",
+    "title": "Duplicate joining disabled",
+    "description": "Reopening the joined organization displays a disabled Already a member button. TODO 8."
+  },
+  {
+    "file": "screenshots/18_responsive_grid.png",
+    "title": "Responsive grid layout",
+    "description": "At a 1200-pixel viewport width, the same screen displays three columns. The joined state is retained. E5."
+  },
+  {
+    "file": "screenshots/19_network_banner.png",
+    "title": "Network banner loaded",
+    "description": "Computer Science Circle displays its downloaded banner image and organization details. E8."
+  },
+  {
+    "file": "screenshots/20_banner_error_fallback.png",
+    "title": "Failed-image fallback",
+    "description": "The ITSO image request was deliberately blocked in the browser. The app displays its broken-image placeholder and remains usable. E8."
+  }
+]

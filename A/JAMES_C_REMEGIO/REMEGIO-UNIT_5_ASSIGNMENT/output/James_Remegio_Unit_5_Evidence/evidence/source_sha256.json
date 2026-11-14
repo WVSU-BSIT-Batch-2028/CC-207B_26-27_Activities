@@ -1,0 +1,11 @@
+{
+  "lib/data/orgs.dart": "27ea2ab013955efa6a558504e463b7fccf4c54d590195b54804f9d5aa3651576",
+  "lib/main.dart": "b2c8fbc21658ec656a4b16be3f8ca8c15f2017316fabd52397ca7d8080c93e8c",
+  "lib/models/registration.dart": "d0c744d7c79664b67be049364fb34cb1890cf4f818176de6c2efaa251a7c8db9",
+  "lib/screens/join_form_screen.dart": "e9de67d0d554641b09ca6addb4cc04c178baa7602380b8f7b6dae78f857b0e6b",
+  "lib/screens/org_detail_screen.dart": "6e2d67729b6a36ea849c0ee379f266bfab41d816789deb1823ebe4a6e85f9661",
+  "lib/screens/org_list_screen.dart": "64840fc34232e636c6415cce91fb4d0776c476b784f00a7f76f6bcd977aff1d0",
+  "lib/widgets/org_banner.dart": "6f95e79314a02c6a2ff66a3a89cada8c8346edb005504f8ed028b6aaad5c4e36",
+  "lib/widgets/org_card.dart": "9b82a0c3fbd9351b8563e89acdd4b968480b72e564cbff849b7af5db2cbe404b",
+  "lib/widgets/state_message.dart": "f7aa8f6f721011e472581c0557fb734a676580ece226585f09a85feabf3aee4b"
+}
