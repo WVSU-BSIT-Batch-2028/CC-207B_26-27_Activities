@@ -59,6 +59,23 @@ class Unit5App extends StatelessWidget {
   }
 }
 
+class Photo {
+  final String asset;
+  final String caption;
+  const Photo({required this.asset, required this.caption});
+}
+
+class ClassSlot {
+  final String day;
+  final String time;
+  final String subject;
+  const ClassSlot({
+    required this.day,
+    required this.time,
+    required this.subject,
+  });
+}
+
 // =============================================================================
 // NAVIGATION SHELL
 // =============================================================================
@@ -73,23 +90,27 @@ class HomeShell extends StatefulWidget {
 class _HomeShellState extends State<HomeShell> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = const [ProfileScreen(), PetScreen()];
+  final List<Widget> _screens = const [
+    ProfileScreen(),
+    PetScreen(),
+    GalleryScreen(), // Added 3rd Screen
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(index: _selectedIndex, children: _screens),
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _screens, // IndexedStack keeps states alive
+      ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           border: Border(top: BorderSide(color: Color(0xFF7A6559), width: 2.5)),
         ),
         child: NavigationBar(
           selectedIndex: _selectedIndex,
-          onDestinationSelected: (int index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
+          onDestinationSelected: (int index) =>
+              setState(() => _selectedIndex = index),
           destinations: const [
             NavigationDestination(
               icon: Icon(Icons.person_outline_rounded),
@@ -100,6 +121,11 @@ class _HomeShellState extends State<HomeShell> {
               icon: Icon(Icons.pets_outlined),
               selectedIcon: Icon(Icons.pets_rounded),
               label: 'Mini Room',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.photo_library_outlined),
+              selectedIcon: Icon(Icons.photo_library_rounded),
+              label: 'Gallery',
             ),
           ],
         ),
@@ -199,21 +225,6 @@ class ProfileScreen extends StatelessWidget {
       value: 'August 18, 2004',
     ),
     ProfileInfo(
-      icon: Icons.favorite_rounded,
-      label: 'PASSIONS',
-      value: 'Otters & Cats',
-    ),
-    ProfileInfo(
-      icon: Icons.sports_esports_rounded,
-      label: 'GAMING',
-      value: 'Single-Player RPGs & Racing Simulators',
-    ),
-    ProfileInfo(
-      icon: Icons.fitness_center_rounded,
-      label: 'LIFESTYLE',
-      value: 'Fitness Enthusiast & Fragrances',
-    ),
-    ProfileInfo(
       icon: Icons.tv_rounded,
       label: 'WATCHING',
       value: 'The Bear ("Yes, Chef!")',
@@ -222,6 +233,25 @@ class ProfileScreen extends StatelessWidget {
       icon: Icons.school_rounded,
       label: 'EDUCATION',
       value: 'BS in Information Technology - WVSU',
+    ),
+  ];
+
+  final List<String> _hobbies = const [
+    'Otters & Cats',
+    'Single-Player RPGs',
+    'Racing Sims',
+    'Gym / Fitness',
+    'Fragrances',
+  ];
+
+  final List<ClassSlot> _schedule = const [
+    ClassSlot(day: 'Mon', time: '8:00-9:30', subject: 'CC 206 App Development'),
+    ClassSlot(day: 'Tue', time: '10:00-11:30', subject: 'CS 311 Algorithms'),
+    ClassSlot(day: 'Wed', time: '8:00-9:30', subject: 'CC 206 App Development'),
+    ClassSlot(
+      day: 'Thu',
+      time: '1:00-2:30',
+      subject: 'CS 313 Operating Systems',
     ),
   ];
 
@@ -266,7 +296,6 @@ class ProfileScreen extends StatelessWidget {
                         color: theme.colorScheme.primary,
                         width: 2.5,
                       ),
-                      // If you kept profile.jpg instead of regenerating as .png, change this line!
                       image: const DecorationImage(
                         image: AssetImage('assets/images/profile.jpg'),
                         fit: BoxFit.cover,
@@ -308,12 +337,173 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24.0),
 
-            // Profile Info List (Exercise Requirement: collection-for loop)
+            // Profile Info List
             for (final info in _profileInfos) InfoTile(info: info),
-
             const SizedBox(height: 12.0),
 
-            // Biography Section (Using the new UI Wood Board asset)
+            // Hobbies as Chips
+            Card(
+              margin: const EdgeInsets.only(bottom: 16),
+              color: theme.colorScheme.surface,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+                side: BorderSide(color: theme.colorScheme.primary, width: 2.5),
+              ),
+              elevation: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'My Hobbies',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w900,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        for (final hobby in _hobbies)
+                          Chip(
+                            label: Text(
+                              hobby,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color: theme.colorScheme.primary,
+                              ),
+                            ),
+                            backgroundColor: theme.colorScheme.secondary
+                                .withAlpha(100),
+                            side: BorderSide(
+                              color: theme.colorScheme.primary,
+                              width: 1.5,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // Class Schedule as Table
+            Card(
+              margin: const EdgeInsets.only(bottom: 16),
+              color: theme.colorScheme.surface,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+                side: BorderSide(color: theme.colorScheme.primary, width: 2.5),
+              ),
+              elevation: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'My Class Schedule',
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w900,
+                        color: theme.colorScheme.primary,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Table(
+                      border: TableBorder.all(
+                        color: theme.colorScheme.primary,
+                        width: 1.5,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      columnWidths: const {
+                        0: FixedColumnWidth(50),
+                        1: FixedColumnWidth(90),
+                        2: FlexColumnWidth(),
+                      },
+                      children: [
+                        TableRow(
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.secondary,
+                          ),
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Day',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  color: theme.colorScheme.primary,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Time',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  color: theme.colorScheme.primary,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                'Subject',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w900,
+                                  color: theme.colorScheme.primary,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        for (final slot in _schedule)
+                          TableRow(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  slot.day,
+                                  style: TextStyle(
+                                    color: theme.colorScheme.primary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  slot.time,
+                                  style: TextStyle(
+                                    color: theme.colorScheme.primary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  slot.subject,
+                                  style: TextStyle(
+                                    color: theme.colorScheme.primary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // Biography Section
             Container(
               decoration: BoxDecoration(
                 image: const DecorationImage(
@@ -327,7 +517,6 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               child: Container(
-                // Semi-transparent overlay to ensure text is readable against the wood pattern
                 decoration: BoxDecoration(
                   color: theme.colorScheme.surface.withAlpha(200),
                   borderRadius: BorderRadius.circular(18),
@@ -391,7 +580,6 @@ class _PetScreenState extends State<PetScreen> {
   bool _isPlaying = false;
   bool _isLiked = false;
 
-  // Exercise Requirement: State variables
   int _affection = 0;
   int _squeakCount = 0;
 
@@ -413,7 +601,6 @@ class _PetScreenState extends State<PetScreen> {
     super.dispose();
   }
 
-  // Exercise Requirement: Audio feature + counter state
   Future<void> _playSound() async {
     setState(() {
       _isPlaying = true;
@@ -422,7 +609,6 @@ class _PetScreenState extends State<PetScreen> {
     await _player.play(AssetSource('sounds/pet_sound.mp3'));
   }
 
-  // Exercise Requirement: Double-tap interaction
   void _feedPet() {
     setState(() {
       _affection += 15;
@@ -435,6 +621,65 @@ class _PetScreenState extends State<PetScreen> {
         });
       }
     });
+  }
+
+  // Reset Dialog function
+  Future<void> _showResetDialog() async {
+    final bool? shouldReset = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Theme.of(context).colorScheme.surface,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+            side: BorderSide(
+              color: Theme.of(context).colorScheme.primary,
+              width: 2.5,
+            ),
+          ),
+          title: Text(
+            'Reset the count?',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.primary,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+          content: Text(
+            'Your otter has squeaked $_squeakCount times. Start again from zero?',
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.primary,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: Text(
+                'Cancel',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+            FilledButton(
+              style: FilledButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+              ),
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text(
+                'Reset',
+                style: TextStyle(fontWeight: FontWeight.w700),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (shouldReset == true) {
+      setState(() => _squeakCount = 0);
+    }
   }
 
   @override
@@ -455,7 +700,6 @@ class _PetScreenState extends State<PetScreen> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            // The "Room" Layered Frame
             Expanded(
               child: GestureDetector(
                 onDoubleTap: _feedPet,
@@ -474,22 +718,17 @@ class _PetScreenState extends State<PetScreen> {
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
-                        // Layer 1: Background Room
                         Image.asset(
                           'assets/images/room_bg.png',
                           width: double.infinity,
                           height: double.infinity,
                           fit: BoxFit.cover,
                         ),
-
-                        // Layer 2: Transparent Otter Character
                         Image.asset(
                           'assets/images/pet.jpg',
                           height: 300,
                           fit: BoxFit.contain,
                         ),
-
-                        // Layer 3: Affection Bar overlay
                         Positioned(
                           top: 16,
                           left: 16,
@@ -525,7 +764,6 @@ class _PetScreenState extends State<PetScreen> {
                             ),
                           ),
                         ),
-                        // Floating Heart Animation
                         if (_isLiked)
                           Icon(
                             Icons.favorite_rounded,
@@ -543,7 +781,6 @@ class _PetScreenState extends State<PetScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Squeak Counter & Hints (Restored Exercise Requirement)
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
@@ -571,9 +808,40 @@ class _PetScreenState extends State<PetScreen> {
                 ],
               ),
             ),
+            const SizedBox(height: 8),
+
+            // Reset Button added here
+            OutlinedButton.icon(
+              onPressed: _squeakCount == 0 ? null : _showResetDialog,
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(
+                  color: _squeakCount == 0
+                      ? Colors.grey
+                      : theme.colorScheme.primary,
+                  width: 2,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              icon: Icon(
+                Icons.refresh_rounded,
+                color: _squeakCount == 0
+                    ? Colors.grey
+                    : theme.colorScheme.primary,
+              ),
+              label: Text(
+                'Reset count',
+                style: TextStyle(
+                  color: _squeakCount == 0
+                      ? Colors.grey
+                      : theme.colorScheme.primary,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
             const SizedBox(height: 16),
 
-            // Action Buttons Panel
             Container(
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
               decoration: BoxDecoration(
@@ -605,7 +873,7 @@ class _PetScreenState extends State<PetScreen> {
                     theme,
                     icon: Icons.checkroom_rounded,
                     label: 'Dress',
-                    onTap: () {}, // Future feature placeholder
+                    onTap: () {},
                   ),
                 ],
               ),
@@ -643,6 +911,161 @@ class _PetScreenState extends State<PetScreen> {
             style: theme.textTheme.labelMedium?.copyWith(
               color: theme.colorScheme.primary,
               fontWeight: FontWeight.w900,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// =============================================================================
+// GALLERY SCREENS
+// =============================================================================
+
+class GalleryScreen extends StatefulWidget {
+  const GalleryScreen({super.key});
+  @override
+  State<GalleryScreen> createState() => _GalleryScreenState();
+}
+
+class _GalleryScreenState extends State<GalleryScreen> {
+  String? _favoriteAsset;
+
+  final List<Photo> _photos = const [
+    Photo(
+      asset: 'assets/images/gallery/pic1.jpg',
+      caption: 'Otter at the beach',
+    ),
+    Photo(asset: 'assets/images/gallery/pic2.jpg', caption: 'Gym session'),
+    Photo(asset: 'assets/images/gallery/pic3.jpg', caption: 'Fragrance haul'),
+    Photo(asset: 'assets/images/gallery/pic4.jpg', caption: 'Racing Sim Setup'),
+    Photo(asset: 'assets/images/gallery/pic5.jpg', caption: 'Batchoy night'),
+    Photo(asset: 'assets/images/gallery/pic6.jpg', caption: 'Coding late'),
+  ];
+
+  Future<void> _open(Photo photo) async {
+    final bool? makeFavorite = await Navigator.push<bool>(
+      context,
+      MaterialPageRoute(builder: (_) => PhotoScreen(photo: photo)),
+    );
+    if (makeFavorite == true) {
+      setState(() => _favoriteAsset = photo.asset);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'MY GALLERY',
+          style: theme.textTheme.titleLarge?.copyWith(
+            fontWeight: FontWeight.w900,
+            letterSpacing: 2.0,
+          ),
+        ),
+      ),
+      body: GridView.extent(
+        maxCrossAxisExtent: 160,
+        crossAxisSpacing: 8,
+        mainAxisSpacing: 8,
+        padding: const EdgeInsets.all(8.0),
+        children: [
+          for (final photo in _photos)
+            GestureDetector(
+              onTap: () => _open(photo),
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: Image.asset(
+                      photo.asset,
+                      fit: BoxFit.cover,
+                      semanticLabel: photo.caption,
+                    ),
+                  ),
+                  if (_favoriteAsset == photo.asset)
+                    Positioned(
+                      top: 8,
+                      right: 8,
+                      child: Icon(
+                        Icons.star_rounded,
+                        color: theme.colorScheme.tertiary,
+                        size: 32,
+                        shadows: const [
+                          Shadow(color: Colors.black54, blurRadius: 4),
+                        ],
+                      ),
+                    ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        color: theme.colorScheme.primary,
+                        width: 2.5,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class PhotoScreen extends StatelessWidget {
+  final Photo photo;
+  const PhotoScreen({super.key, required this.photo});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          photo.caption,
+          style: const TextStyle(fontWeight: FontWeight.w900),
+        ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              margin: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: theme.colorScheme.primary, width: 3),
+                image: DecorationImage(
+                  image: AssetImage(photo.asset),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: FilledButton.icon(
+                style: FilledButton.styleFrom(
+                  backgroundColor: theme.colorScheme.primary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+                onPressed: () => Navigator.pop(context, true),
+                icon: const Icon(Icons.star_rounded, color: Colors.white),
+                label: const Text(
+                  'Make favorite',
+                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+                ),
+              ),
             ),
           ),
         ],
